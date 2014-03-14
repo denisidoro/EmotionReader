@@ -26,9 +26,9 @@ public:
 
 	int frame = 0;
 	int imageId = 0;
-	int facId = 0;
+	int emotionId = 0;
 	vector<string> txts;
-	vector<int> consideredFacs;
-	vector<string> txtsFac;
+	vector<int> consideredEmotions;
+	vector<string> txtsEmotion;
 
 };

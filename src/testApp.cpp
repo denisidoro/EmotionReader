@@ -8,17 +8,17 @@ using namespace ofxCv;
 using namespace cv;
 
 
-vector<string> getFacsTxts() {
+vector<string> getEmotionTxts() {
 
     std::vector<string> txts;
 
     string kanadePath = "/dev/resource/kanade/";
-    ofDirectory dirFacs(kanadePath + "/FACS");
-    dirFacs.listDir();
+    ofDirectory dirEmotions(kanadePath + "/Emotion");
+    dirEmotions.listDir();
 
-    for(int i = 0; i < dirFacs.numFiles(); i++) {
+    for(int i = 0; i < dirEmotions.numFiles(); i++) {
 
-        ofDirectory dirSubject(dirFacs.getPath(i));
+        ofDirectory dirSubject(dirEmotions.getPath(i));
         dirSubject.listDir();
          for(int j = 0; j < dirSubject.numFiles(); j++) {
             ofDirectory dir(dirSubject.getPath(j));
@@ -35,39 +35,27 @@ vector<string> getFacsTxts() {
 
 }
 
-vector<int> getFacs(string txt) {
+int getEmotion(string txt) {
 
-    vector<int> facs;
     ofBuffer buffer = ofBufferFromFile(txt);
     vector<string> words = ofSplitString(buffer.getText(), " ", true, true);
-
-    for (int i = 0; i < words.size(); i += 2) {
-        facs.push_back((int)atof(words[i].c_str()));
-    }
-
-    return facs;
+    return (int)atof(words[0].c_str());
 
 }
 
 string getLastPic(string path) {
-    ofStringReplace(path, "FACS", "images");
-    ofStringReplace(path, "_facs.txt", ".png");
+    ofStringReplace(path, "Emotion", "images");
+    ofStringReplace(path, "_emotion.txt", ".png");
     return path;
 }
 
-vector<string> getTxtsWithFac(vector<string> txts, int facCode) {
+vector<string> getTxtsWithEmotion(vector<string> txts, int emotionCode) {
 
     vector<string> result;
 
-    for (int i; i < txts.size(); i++) {
-
-        vector<int> facs = getFacs(txts[i]);
-
-        for (int j = 0; j < facs.size(); j++)
-            if (facs[j] == facCode)
-                result.push_back(txts[i]);
-
-    }
+    for (int i = 0; i < txts.size(); i++)
+        if (getEmotion(txts[i]) == emotionCode)
+            result.push_back(txts[i]);
 
     return result;
 
@@ -76,9 +64,8 @@ vector<string> getTxtsWithFac(vector<string> txts, int facCode) {
 
 void testApp::setup() {
 
-    txts = getFacsTxts();
-    consideredFacs = {1, 2, 4, 5, 6, 7, 9, 10, 12, 14, 15, 17, 18, 20, 23, 24, 25, 26, 27, 43};
-    //consideredFacs = {1};
+    txts = getEmotionTxts();
+    consideredEmotions = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
 	ofSetVerticalSync(true);
 
@@ -89,21 +76,25 @@ void testApp::setup() {
 
 void testApp::update() {
 
-    if (facId > consideredFacs.size()) {
+    if (emotionId > consideredEmotions.size()) {
         classifier.save("expressions");
         std::exit(0);
         return;
     }
 
-    if (imageId >= txtsFac.size()) {
-        cout << "Current FAC: " << consideredFacs[facId] << "\n";
-        txtsFac = getTxtsWithFac(txts, consideredFacs[facId++]);
+    if (imageId >= txtsEmotion.size()) {
+        cout << "Current Emotion: " << consideredEmotions[emotionId] << "\n";
+        txtsEmotion = getTxtsWithEmotion(txts, consideredEmotions[emotionId++]);
+        if (txtsEmotion.size() == 0) {
+            imageId = 999;
+            return;
+        }
         imageId = 0;
         classifier.addExpression();
     }
 
     if (frame == 0) {
-        string filename = getLastPic(txtsFac[imageId++]);
+        string filename = getLastPic(txtsEmotion[imageId++]);
         ifstream ifile(filename);
         if (ifile)
             image.loadImage(filename);
