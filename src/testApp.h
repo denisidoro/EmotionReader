@@ -1,8 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxCv.h"
 #include "ofxFaceTracker.h"
-//#include "Emotion.h"
 
 class testApp : public ofBaseApp {
 public:
@@ -15,6 +15,20 @@ public:
 	ofxFaceTracker tracker;
 	ExpressionClassifier classifier;
 
-	double facProbabilities[21];
+    ofVec2f position;
+	float scale;
+	ofVec3f orientation;
+	ofMatrix4x4 rotationMatrix;
+	//Mat translation, rotation;
+	ofMatrix4x4 pose;
+
+	ofImage image;
+
+	int frame = 0;
+	int imageId = 0;
+	int facId = 0;
+	vector<string> txts;
+	vector<int> consideredFacs;
+	vector<string> txtsFac;
 
 };
