@@ -94,10 +94,10 @@ void testApp::keyPressed(int key) {
 		classifier.addSample(tracker);
 	}
 	if(key == 's') {
-		classifier.save("expressions");
+		classifier.save("facs");
 	}
 	if(key == 'l') {
-		classifier.load("expressions");
+		classifier.load("facs");
 	}
 	if(key == 'k') {
 		emotionClassifier.load("emotions");
