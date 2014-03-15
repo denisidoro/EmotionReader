@@ -2,7 +2,6 @@
 
 #include "ofMain.h"
 #include "ofxFaceTracker.h"
-//#include "Emotion.h"
 
 class testApp : public ofBaseApp {
 public:

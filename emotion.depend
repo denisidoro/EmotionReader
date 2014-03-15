@@ -2196,3 +2196,16 @@
 1393492614 source:d:\dev\of\apps\tracking\emotion\src\testapp.cpp
 	"testApp.h"
 
+1384532386 source:d:\dev\of\apps\tracking\temp\icon.rc
+
+1384540560 source:d:\dev\of\apps\tracking\temp\src\main.cpp
+	"testApp.h"
+	"ofAppGlutWindow.h"
+
+1394880527 d:\dev\of\apps\tracking\temp\src\testapp.h
+	"ofMain.h"
+	"ofxFaceTracker.h"
+
+1394880541 source:d:\dev\of\apps\tracking\temp\src\testapp.cpp
+	"testApp.h"
+

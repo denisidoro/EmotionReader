@@ -5,8 +5,6 @@ using namespace cv;
 
 void testApp::setup() {
 
-    //Emotion happy("happy", {0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0});
-
 	ofSetVerticalSync(true);
 	cam.initGrabber(640, 480);
 
@@ -98,11 +96,5 @@ void testApp::keyPressed(int key) {
 	}
 	if(key == 'l') {
 		classifier.load("facs");
-	}
-	if(key == 'k') {
-		emotionClassifier.load("emotions");
-		emotionClassifier.addEmotion();
-		emotionClassifier.addSample(facProbabilities);
-		emotionsClassifier.save("emotions");
 	}
 }
