@@ -2196,3 +2196,21 @@
 1393492614 source:d:\dev\of\apps\tracking\emotion\src\testapp.cpp
 	"testApp.h"
 
+1394881100 source:d:\dev\of\apps\tracking\temp\icon.rc
+
+1394881100 source:d:\dev\of\apps\tracking\temp\src\main.cpp
+	"testApp.h"
+	"ofAppGlutWindow.h"
+
+1394881132 d:\dev\of\apps\tracking\temp\src\testapp.h
+	"ofMain.h"
+	"ofxCv.h"
+	"ofxFaceTracker.h"
+
+1394881132 source:d:\dev\of\apps\tracking\temp\src\testapp.cpp
+	"testApp.h"
+	<stdio.h>
+	<stdlib.h>
+	<cstring>
+	<string>
+
