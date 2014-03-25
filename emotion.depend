@@ -2209,3 +2209,21 @@
 1394880541 source:d:\dev\of\apps\tracking\temp\src\testapp.cpp
 	"testApp.h"
 
+1394881100 source:d:\dev\of\apps\tracking\emotionreader\icon.rc
+
+1384540560 source:d:\dev\of\apps\tracking\emotionreader\src\main.cpp
+	"testApp.h"
+	"ofAppGlutWindow.h"
+
+1395266188 d:\dev\of\apps\tracking\emotionreader\src\testapp.h
+	"ofMain.h"
+	"ofxCv.h"
+	"ofxFaceTracker.h"
+
+1395266202 source:d:\dev\of\apps\tracking\emotionreader\src\testapp.cpp
+	"testApp.h"
+	<stdio.h>
+	<stdlib.h>
+	<cstring>
+	<string>
+

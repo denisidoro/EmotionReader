@@ -74,7 +74,7 @@ void testApp::setup() {
 	tracker.setup();
 	tracker.setRescale(.5);
 
-    classifier.load("expressions");
+    classifier.load("facs");
 
 }
 
@@ -181,9 +181,9 @@ void testApp::keyPressed(int key) {
 		classifier.addSample(tracker);
 	}
 	if(key == 's') {
-		classifier.save("expressions");
+		classifier.save("facs");
 	}
 	if(key == 'l') {
-		classifier.load("expressions");
+		classifier.load("facs");
 	}
 }
