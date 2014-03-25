@@ -66,7 +66,7 @@ void testApp::draw() {
         ofSetColor(ofColor::red);
         ofRect(ofGetWidth() - 120, 0, w * prob + 0.5, h);
         ofSetColor(255);
-        ofDrawBitmapString("blah", ofGetWidth() - 120, h);
+        ofDrawBitmapString(emotionNames[i], ofGetWidth() - 120, h);
         ofTranslate(0, h + 5);
 
     }
