@@ -64,7 +64,7 @@ void testApp::draw() {
         prob /= weights;
 
         ofSetColor(ofColor::red);
-        ofRect(ofGetWidth() - 120, 0, w * prob + 0.5, h);
+        ofRect(ofGetWidth() - 120, 0, w * prob * 4 + 0.5, h);
         ofSetColor(255);
         ofDrawBitmapString(emotionNames[i], ofGetWidth() - 120, h);
         ofTranslate(0, h + 5);
