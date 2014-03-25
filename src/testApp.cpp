@@ -52,17 +52,21 @@ void testApp::draw() {
 	ofPushMatrix();
 	ofTranslate(5, 10);
 
+    for (int i = 0; i < 7; i++) {
 
-    vector<double> emProb;
-    emProb.push_back((classifier.getProbability(4) + classifier.getProbability(8))/2);
-    emProb.push_back((classifier.getProbability(2) + classifier.getProbability(3) + classifier.getProbability(5) + classifier.getProbability(14))/4);
+        float prob = 0, weights = 0;
+        for (int j = 0; j < 20; j++) {
+            weights += emotions[i][j];
+            prob += classifier.getProbability(j) * emotions[i][j];
+        }
+        prob /= weights;
 
-    for (int i = 0; i < emProb.size(); i++) {
         ofSetColor(ofColor::red);
-        ofRect(ofGetWidth() - 120, 0, w * emProb[i] + 0.5, h);
+        ofRect(ofGetWidth() - 120, 0, w * prob + 0.5, h);
         ofSetColor(255);
         ofDrawBitmapString("blah", ofGetWidth() - 120, h);
         ofTranslate(0, h + 5);
+
     }
 
 	ofPopMatrix();
