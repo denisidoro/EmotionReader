@@ -11,6 +11,8 @@ void testApp::setup() {
 	tracker.setup();
 	tracker.setRescale(.5);
 
+    classifier.load("facs");
+
 }
 
 void testApp::update() {
@@ -72,33 +74,6 @@ void testApp::draw() {
 	ofPopMatrix();
 	ofPopStyle();
 
-
-	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), ofGetWidth() - 20, ofGetHeight() - 10);
-	drawHighlightString(
-		string() +
-		"r - reset\n" +
-		"e - add expression\n" +
-		"a - add sample\n" +
-		"s - save expressions\n"
-		"l - load expressions",
-		14, ofGetHeight() - 7 * 12);
 }
 
-void testApp::keyPressed(int key) {
-	if(key == 'r') {
-		tracker.reset();
-		classifier.reset();
-	}
-	if(key == 'e') {
-		classifier.addExpression();
-	}
-	if(key == 'a') {
-		classifier.addSample(tracker);
-	}
-	if(key == 's') {
-		classifier.save("facs");
-	}
-	if(key == 'l') {
-		classifier.load("facs");
-	}
-}
+void testApp::keyPressed(int key) {}
