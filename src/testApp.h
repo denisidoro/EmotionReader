@@ -10,7 +10,7 @@ public:
 	void draw();
 	void keyPressed(int key);
 
-	ofVideoGrabber cam;
+	//ofVideoGrabber cam;
 	ofxFaceTracker tracker;
 	ExpressionClassifier classifier;
 
@@ -25,5 +25,24 @@ public:
         {0.400294, 0.556488, 0.0430079, 0.0355124, 0.00498915, 0.0197266, 0.00437082, 0.00483763, 0.381133, 0.103575, 0.494007, 0.00853597, 0.0301029, 0.839436, 0.0192729, 0.00535973, 0.000716416, 0.00132467, 0.0189431, 0.00427111}
 	};
 	string emotionNames[7] = {"angry", "contempt", "disgust", "fear", "happy", "sadness", "surprise"};
+
+    ofVec2f position;
+	float scale;
+	ofVec3f orientation;
+	ofMatrix4x4 rotationMatrix;
+	//Mat translation, rotation;
+	ofMatrix4x4 pose;
+
+	ofImage image;
+	int frame = 0;
+	int imageId = 0;
+	int emotionId = 0;
+	vector<string> txts;
+	vector<int> consideredEmotions;
+	vector<string> txtsEmotion;
+
+	float ratio = 0;
+	int maxEmotion;
+    float probs[7];
 
 };
