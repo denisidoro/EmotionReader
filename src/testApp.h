@@ -26,4 +26,7 @@ public:
 	};
 	string emotionNames[7] = {"angry", "contempt", "disgust", "fear", "happy", "sadness", "surprise"};
 
+    float probs[7];
+    float emotionFactors[7] = {1.82, 1, 1.4, 1.1, 1, 1.3, 1.01};
+
 };
