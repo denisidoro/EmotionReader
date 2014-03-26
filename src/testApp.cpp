@@ -116,7 +116,7 @@ void testApp::update() {
     }
     else if (frame == 2) {
         ratio += (maxEmotion == emotionId) ? 1 : 0;
-        cout << "\t(" << maxEmotion << ", " << emotionId << "), " << "(" << probs[maxEmotion] << ", " << probs[emotionId] << ")\n";
+        //cout << "\t(" << maxEmotion << ", " << emotionId << "), " << "(" << probs[maxEmotion] << ", " << probs[emotionId] << ")\n";
         frame = 0;
     }
 
@@ -152,15 +152,17 @@ void testApp::draw() {
 	ofPushMatrix();
 	ofTranslate(5, 10);
 
+	float weights;
+
     for (int i = 0; i < 7; i++) {
 
         probs[i] = 0;
-        float weights = 0;
+        weights = 0;
         for (int j = 0; j < 20; j++) {
             weights += emotions[i][j];
             probs[i] += classifier.getProbability(j) * emotions[i][j];
         }
-        probs[i] /= weights;
+        probs[i] *= emotionFactors[i]/weights;
 
         ofSetColor(ofColor::red);
         ofRect(ofGetWidth() - 120, 0, w * probs[i] * 4 + 0.5, h);
@@ -168,15 +170,21 @@ void testApp::draw() {
         ofDrawBitmapString(emotionNames[i], ofGetWidth() - 120, h);
         ofTranslate(0, h + 5);
 
-        float maxProb = 0;
-        maxEmotion = 0;
-        for (int i = 0; i < 7; i++) {
-            if (probs[i] > maxProb) {
-                maxProb = probs[i];
-                maxEmotion = i + 1;
-            }
-        }
+    }
 
+    weights = 0;
+    for (int i = 0; i < 7; i++)
+        weights += probs[i];
+    for (int i = 0; i < 7; i++)
+        probs[i] /= weights;
+
+    float maxProb = 0;
+    maxEmotion = 0;
+    for (int i = 0; i < 7; i++) {
+        if (probs[i] > maxProb) {
+            maxProb = probs[i];
+            maxEmotion = i + 1;
+        }
     }
 
 	ofPopMatrix();
