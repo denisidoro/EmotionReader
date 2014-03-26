@@ -299,18 +299,6 @@
 		<Unit filename="../../../addons/ofxFaceTracker/libs/FaceTracker/src/lib/Tracker.cc">
 			<Option virtualFolder="addons/ofxFaceTracker/libs/FaceTracker/src/lib" />
 		</Unit>
-		<Unit filename="../../../addons/ofxFaceTracker/src/Emotion.cpp">
-			<Option virtualFolder="addons/ofxFaceTracker/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxFaceTracker/src/Emotion.h">
-			<Option virtualFolder="addons/ofxFaceTracker/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxFaceTracker/src/EmotionClassifier.cpp">
-			<Option virtualFolder="addons/ofxFaceTracker/src" />
-		</Unit>
-		<Unit filename="../../../addons/ofxFaceTracker/src/EmotionClassifier.h">
-			<Option virtualFolder="addons/ofxFaceTracker/src" />
-		</Unit>
 		<Unit filename="../../../addons/ofxFaceTracker/src/Expression.cpp">
 			<Option virtualFolder="addons/ofxFaceTracker/src" />
 		</Unit>
@@ -633,7 +621,6 @@
 			<Option virtualFolder="addons/ofxOpenCv/src" />
 		</Unit>
 		<Unit filename="../../../include/Emotion.h" />
-		<Unit filename="../../../src/Emotion.cpp" />
 		<Unit filename="icon.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
