@@ -116,7 +116,7 @@ void testApp::update() {
     }
     else if (frame == 2) {
         ratio += (maxEmotion == emotionId) ? 1 : 0;
-        cout << "\t(" << maxEmotion << ", " << emotionId << "), " << probs[emotionId] << "\n";
+        cout << "\t(" << maxEmotion << ", " << emotionId << "), " << "(" << probs[maxEmotion] << ", " << probs[emotionId] << ")\n";
         frame = 0;
     }
 
