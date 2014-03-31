@@ -3,7 +3,7 @@ EmotionReader
 
 Cross-platform application for detecting emotions from videos
 
-This is a [CodeBlocks] C++ project that requires [OpenFrameworks], ofxOpenCV, [ofxCV] and [ofxFaceTracker].
+This is a [CodeBlocks] C++ project that requires [OpenFrameworks], [ofxUI], ofxOpenCV, [ofxCV] and [ofxFaceTracker].
 
 
 Installation for other IDEs
@@ -17,3 +17,4 @@ Then, copy all the content not Codeblocks-related to your recently created proje
 [OpenFrameworks]:http://www.openframeworks.cc
 [ofxCV]:https://github.com/kylemcdonald/ofxCv
 [ofxFaceTracker]:https://github.com/kylemcdonald/ofxFaceTracker
+[ofxUI]:https://github.com/rezaali/ofxUI
