@@ -112,16 +112,13 @@ void testApp::draw(){
 	int n = classifier.size();
 	int primary = classifier.getPrimaryExpression();
 
-	int avgProb = 0;
     for (int i = 0; i < n; i++) {
     	probs[i] = classifier.getProbability(i);
-    	avgProb += probs[i];
     }
-    avgProb /= 7;
 
     stdDeviation = 0;
     for (int i = 0; i < n; i++) {
-    	stdDeviation += pow(avgProb - probs[i], 2);
+    	stdDeviation += pow(1/7 - probs[i], 2);
     }
     stdDeviation /= 7;
 
