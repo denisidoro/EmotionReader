@@ -2619,8 +2619,11 @@
 	"ofMain.h"
 	"testApp.h"
 
-1396365651 d:\dev\of\apps\tracking\emotionreader\src\testapp.h
+1396366626 d:\dev\of\apps\tracking\emotionreader\src\testapp.h
 	"ofMain.h"
 	"ofxUI.h"
 	"ofxFaceTracker.h"
+
+1396366618 source:d:\dev\of\apps\tracking\emotionreader\src\testapp.cpp
+	"testApp.h"
 

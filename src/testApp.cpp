@@ -10,7 +10,7 @@ void testApp::setup() {
 	ofEnableSmoothing();
 
 	// facetracking initialization
-	cam.initGrabber(640, 480);
+	cam.initGrabber(640, 470);
 	tracker.setup();
 	tracker.setRescale(.5);
     classifier.load("emotions");
@@ -19,7 +19,7 @@ void testApp::setup() {
     meshColor = ofColor(32, 225, 205);
     for (int i = 0; i < 7; i++)
     	probs[i] = 0;
-    string emotionLabels[7] = {"Angry", "Contempt", "Disgust", "Fear", "Happy", "Sadness", "Surprise"};
+    string emotionLabels[8] = {"Angry", "Contempt", "Disgust", "Fear", "Happy", "Sadness", "Surprise", "Neutral"};
 
     int camWidth = 640, panelWidth = 212;
 
@@ -50,8 +50,8 @@ void testApp::setup() {
     gui2->autoSizeToFitWidgets();
 
     gui3 = new ofxUISuperCanvas("STATISTICS");
-    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation
-    gui4->addSpacer();
+    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation);
+    gui3->addSpacer();
     gui3->addFPS();
     gui3->setPosition(camWidth/3, 0);
     gui3->autoSizeToFitWidgets();
@@ -59,7 +59,7 @@ void testApp::setup() {
 
     gui4 = new ofxUISuperCanvas("TRACKING");
     gui4->addSpacer();
-	gui4->add2DPad("Position", ofPoint(0, 640), ofPoint(0, 480), &positionPoint);
+	gui4->add2DPad("Position", ofPoint(0, 640), ofPoint(0, 470), &positionPoint);
     gui4->addSpacer();
     gui4->addCircleSlider("Scale", 0, 10, &scale);
     gui4->setPosition(camWidth, 0);
@@ -68,7 +68,7 @@ void testApp::setup() {
 
     gui5 = new ofxUICanvas();
     gui5->addLabel("Press i to toggle advanced panels");
-    gui5->setPosition(0, 480 - 20);
+    gui5->setPosition(0, 470 - 20);
     gui5->autoSizeToFitWidgets();
 
 }
@@ -96,7 +96,7 @@ void testApp::update() {
 //--------------------------------------------------------------
 void testApp::draw(){
 
-	ofBackground(ofColor(180, 200, 200));
+	ofBackground(ofColor(170, 200, 200));
 	ofSetColor(255);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, 20);
 	cam.draw(0, 0);
