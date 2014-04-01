@@ -39,6 +39,7 @@ void testApp::setup() {
     gui1->addSlider("Blue", 0, 255, meshColor.b);
     gui1->setPosition(0, 0);
     gui1->autoSizeToFitWidgets();
+    gui1->disable();
     ofAddListener(gui1->newGUIEvent,this,&testApp::guiEvent);
 
     gui2 = new ofxUISuperCanvas("EMOTIONS");
@@ -49,10 +50,12 @@ void testApp::setup() {
     gui2->autoSizeToFitWidgets();
 
     gui3 = new ofxUISuperCanvas("STATISTICS");
-    //gui3->addFPS();
-    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation);
+    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation
+    gui4->addSpacer();
+    gui3->addFPS();
     gui3->setPosition(camWidth/3, 0);
     gui3->autoSizeToFitWidgets();
+    gui3->disable();
 
     gui4 = new ofxUISuperCanvas("TRACKING");
     gui4->addSpacer();
@@ -61,6 +64,12 @@ void testApp::setup() {
     gui4->addCircleSlider("Scale", 0, 10, &scale);
     gui4->setPosition(camWidth, 0);
     gui4->autoSizeToFitWidgets();
+    gui4->disable();
+
+    gui5 = new ofxUICanvas();
+    gui5->addLabel("Press i to toggle advanced panels");
+    gui5->setPosition(0, 480 - 20);
+    gui5->autoSizeToFitWidgets();
 
 }
 
@@ -120,6 +129,16 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+
+    switch (key) {
+        case 'i':
+            gui1->toggleVisible();
+            gui3->toggleVisible();
+            gui4->toggleVisible();
+            break;
+        default:
+            break;
+    }
 
 }
 

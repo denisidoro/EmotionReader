@@ -35,6 +35,7 @@ class testApp : public ofBaseApp{
 		ofxUISuperCanvas *gui2;
 		ofxUISuperCanvas *gui3;
 		ofxUISuperCanvas *gui4;
+		ofxUICanvas *gui5;
 		void guiEvent(ofxUIEventArgs &e);
 
 		ofColor meshColor; // RGB
