@@ -25,6 +25,8 @@ class testApp : public ofBaseApp{
 		ofVideoGrabber cam;
 		ofxFaceTracker tracker;
 		ExpressionClassifier classifier;
+		ofVec3f orientation;
+		ofMatrix4x4 rotationMatrix;
 
 		float probs[7];
 
@@ -36,8 +38,9 @@ class testApp : public ofBaseApp{
 		void guiEvent(ofxUIEventArgs &e);
 
 		ofColor meshColor; // RGB
-		bool meshView[2] = {true, true}; // Show, Complex
+		bool meshView[3] = {true, true, false}; // Show, complex, axis
 		ofPoint positionPoint = ofPoint(0,0);
 		float scale = 0;
+		float stdDeviation = 0;
 
 };

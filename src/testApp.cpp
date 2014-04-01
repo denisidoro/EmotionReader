@@ -6,8 +6,6 @@ using namespace cv;
 //--------------------------------------------------------------
 void testApp::setup() {
 
-	int x = 640, y = 0;
-
 	ofSetVerticalSync(true);
 	ofEnableSmoothing();
 
@@ -23,6 +21,8 @@ void testApp::setup() {
     	probs[i] = 0;
     string emotionLabels[7] = {"Angry", "Contempt", "Disgust", "Fear", "Happy", "Sadness", "Surprise"};
 
+    int camWidth = 640, panelWidth = 212;
+
     // initialize GUIs
     gui1 = new ofxUISuperCanvas("MESH");
     gui1->addSpacer();
@@ -30,39 +30,36 @@ void testApp::setup() {
     gui1->addSpacer();
 	gui1->addToggle("Show", meshView[0]);
 	gui1->addToggle("Complex", meshView[1]);
+	//gui1->addToggle("Axis", meshView[2]);
     gui1->addSpacer();
     gui1->addLabel("Color", OFX_UI_FONT_MEDIUM);
     gui1->addSpacer();
     gui1->addSlider("Red", 0, 255, meshColor.r);
     gui1->addSlider("Green", 0, 255, meshColor.g);
     gui1->addSlider("Blue", 0, 255, meshColor.b);
-    gui1->setPosition(x, y);
+    gui1->setPosition(0, 0);
     gui1->autoSizeToFitWidgets();
     ofAddListener(gui1->newGUIEvent,this,&testApp::guiEvent);
 
-    y += 122;
     gui2 = new ofxUISuperCanvas("EMOTIONS");
     gui2->addSpacer();
     for (int i = 0; i < 7; i++)
     	gui2->addSlider(emotionLabels[i], 0, 1, &probs[i]);
-    gui2->setPosition(640-212, 0);
+    gui2->setPosition(camWidth - panelWidth, 0);
     gui2->autoSizeToFitWidgets();
 
-    /*
-    gui3 = new ofxUISuperCanvas("INFO");
-    gui3->addSpacer();
-    gui3->addFPS();
-    gui3->setPosition(0, 0);
+    gui3 = new ofxUISuperCanvas("STATISTICS");
+    //gui3->addFPS();
+    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation);
+    gui3->setPosition(camWidth/3, 0);
     gui3->autoSizeToFitWidgets();
-	*/
 
-    y += 122;
     gui4 = new ofxUISuperCanvas("TRACKING");
     gui4->addSpacer();
 	gui4->add2DPad("Position", ofPoint(0, 640), ofPoint(0, 480), &positionPoint);
     gui4->addSpacer();
     gui4->addCircleSlider("Scale", 0, 10, &scale);
-    gui4->setPosition(0, 0);
+    gui4->setPosition(camWidth, 0);
     gui4->autoSizeToFitWidgets();
 
 }
@@ -76,8 +73,9 @@ void testApp::update() {
 
 			ofVec2f position = tracker.getPosition();
 			positionPoint = ofPoint(position.x, position.y);
-			cout << position.x << ", " << position.y << endl;
 			scale = tracker.getScale();
+			orientation = tracker.getOrientation();
+			rotationMatrix = tracker.getRotationMatrix();
 
 			classifier.classify(tracker);
 
@@ -89,6 +87,7 @@ void testApp::update() {
 //--------------------------------------------------------------
 void testApp::draw(){
 
+	ofBackground(ofColor(180, 200, 200));
 	ofSetColor(255);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, 20);
 	cam.draw(0, 0);
@@ -103,9 +102,19 @@ void testApp::draw(){
 
 	int n = classifier.size();
 	int primary = classifier.getPrimaryExpression();
+
+	int avgProb = 0;
     for (int i = 0; i < n; i++) {
     	probs[i] = classifier.getProbability(i);
+    	avgProb += probs[i];
     }
+    avgProb /= 7;
+
+    stdDeviation = 0;
+    for (int i = 0; i < n; i++) {
+    	stdDeviation += pow(avgProb - probs[i], 2);
+    }
+    stdDeviation /= 7;
 
 }
 
@@ -184,6 +193,8 @@ void testApp::guiEvent(ofxUIEventArgs &e) {
 			meshView[0] = value;
 		else if (n == "Complex")
 			meshView[1] = value;
+		else if (n == "Axis")
+			meshView[2] = value;
 
 	}
 
