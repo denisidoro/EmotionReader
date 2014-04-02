@@ -19,7 +19,6 @@ void testApp::setup() {
     meshColor = ofColor(32, 225, 205);
     for (int i = 0; i < 7; i++)
     	probs[i] = 0;
-    string emotionLabels[8] = {"Angry", "Contempt", "Disgust", "Fear", "Happy", "Sadness", "Surprise", "Neutral"};
 
     int camWidth = 640, panelWidth = 212;
 
@@ -48,14 +47,15 @@ void testApp::setup() {
     	gui2->addSlider(emotionLabels[i], 0, 1, &probs[i]);
     gui2->setPosition(camWidth - panelWidth, 0);
     gui2->autoSizeToFitWidgets();
+    gui2->disable();
 
-    gui3 = new ofxUISuperCanvas("STATISTICS");
-    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation);
+    gui3 = new ofxUISuperCanvas("MAIN");
     gui3->addSpacer();
-    gui3->addFPS();
+    gui3->addTextInput("Emotion", "Face not tracked");
+    gui3->addSpacer();
+    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation);
     gui3->setPosition(camWidth/3, 0);
     gui3->autoSizeToFitWidgets();
-    gui3->disable();
 
     gui4 = new ofxUISuperCanvas("TRACKING");
     gui4->addSpacer();
@@ -110,7 +110,8 @@ void testApp::draw(){
 	}
 
 	int n = classifier.size();
-	int primary = classifier.getPrimaryExpression();
+    string primaryLabel = emotionLabels[classifier.getPrimaryExpression()];
+    ((ofxUITextInput *) gui3->getWidget("Emotion"))->setTextString(primaryLabel);
 
     for (int i = 0; i < n; i++) {
     	probs[i] = classifier.getProbability(i);
@@ -130,7 +131,7 @@ void testApp::keyPressed(int key){
     switch (key) {
         case 'i':
             gui1->toggleVisible();
-            gui3->toggleVisible();
+            gui2->toggleVisible();
             gui4->toggleVisible();
             break;
         default:

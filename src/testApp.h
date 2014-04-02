@@ -29,6 +29,7 @@ class testApp : public ofBaseApp{
 		ofMatrix4x4 rotationMatrix;
 
 		float probs[7];
+		string emotionLabels[8] = {"Angry", "Contempt", "Disgust", "Fear", "Happy", "Sadness", "Surprise", "Neutral"};
 
 		// UI related
 		ofxUISuperCanvas *gui1;
