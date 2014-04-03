@@ -44,6 +44,6 @@ public:
 	float ratio = 0;
 	int maxEmotion;
     float probs[7];
-    float emotionFactors[7] = {1.82, 1, 1.4, 1.1, 1, 1.3, 1.01};
+    float emotionFactors[7] = {1.08, 1, 1.04, 1.01, 1, 1.03, 1.01};
 
 };
