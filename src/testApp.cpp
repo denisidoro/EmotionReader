@@ -51,13 +51,16 @@ string getLastPic(string path) {
 
 vector<string> getTxtsWithEmotion(vector<string> txts, int emotionCode) {
 
-    vector<string> result;
+    vector<string> result, result2;
 
     for (int i = 0; i < txts.size(); i++)
         if (getEmotion(txts[i]) == emotionCode)
             result.push_back(txts[i]);
 
-    return result;
+    for (int i = 0; i < result.size()*0.8; i++)
+        result2.push_back(result[i]);
+
+    return result2;
 
 }
 
