@@ -1,15 +1,15 @@
 # depslib dependency file v1.0
-1384545919 source:d:\dev\of\addons\ofxcv\libs\cld\src\etf.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\cld\src\etf.cpp
 	"ETF.h"
 	"imatrix.h"
 	"ofMain.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\cld\include\cld\etf.h
+1384549519 d:\dev\of\addons\ofxcv\libs\cld\include\cld\etf.h
 	"imatrix.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\cld\include\cld\imatrix.h
+1384549519 d:\dev\of\addons\ofxcv\libs\cld\include\cld\imatrix.h
 
-1384532290 d:\dev\of\libs\openframeworks\ofmain.h
+1384535890 d:\dev\of\libs\openframeworks\ofmain.h
 	"ofConstants.h"
 	"ofFileUtils.h"
 	"ofLog.h"
@@ -62,7 +62,7 @@
 	"ofMesh.h"
 	"ofNode.h"
 
-1384532295 d:\dev\of\libs\openframeworks\utils\ofconstants.h
+1384535895 d:\dev\of\libs\openframeworks\utils\ofconstants.h
 	<stdint.h>
 	<TargetConditionals.h>
 	<windows.h>
@@ -109,7 +109,7 @@
 	<algorithm>
 	<cfloat>
 
-1384532295 d:\dev\of\libs\glew\include\gl\glew.h
+1384535895 d:\dev\of\libs\glew\include\gl\glew.h
 	<stddef.h>
 	<inttypes.h>
 	<stdint.h>
@@ -117,21 +117,21 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1384532295 d:\dev\of\libs\glew\include\gl\wglew.h
+1384535895 d:\dev\of\libs\glew\include\gl\wglew.h
 	<windows.h>
 
-1384532297 d:\dev\of\libs\glu\include\glu.h
+1384535897 d:\dev\of\libs\glu\include\glu.h
 	"glu_mangle.h"
 	<GL/gl.h>
 
-1384532313 d:\dev\of\libs\tess2\include\tesselator.h
+1384535913 d:\dev\of\libs\tess2\include\tesselator.h
 	<TargetConditionals.h>
 
-1384532295 d:\dev\of\libs\openframeworks\utils\offileutils.h
+1384535895 d:\dev\of\libs\openframeworks\utils\offileutils.h
 	"ofConstants.h"
 	"Poco/File.h"
 
-1384532272 d:\dev\of\libs\poco\include\poco\file.h
+1384535872 d:\dev\of\libs\poco\include\poco\file.h
 	"Poco/Foundation.h"
 	"Poco/Timestamp.h"
 	<vector>
@@ -142,7 +142,7 @@
 	"Poco/File_UNIX.h"
 	"Poco/File_VMS.h"
 
-1384532271 d:\dev\of\libs\poco\include\poco\foundation.h
+1384535871 d:\dev\of\libs\poco\include\poco\foundation.h
 	"Poco/Config.h"
 	"Poco/Platform.h"
 	"Poco/Platform_WIN32.h"
@@ -153,88 +153,88 @@
 	"Poco/Types.h"
 	<string>
 
-1384532276 d:\dev\of\libs\poco\include\poco\config.h
+1384535876 d:\dev\of\libs\poco\include\poco\config.h
 
-1384532277 d:\dev\of\libs\poco\include\poco\platform.h
+1384535877 d:\dev\of\libs\poco\include\poco\platform.h
 
-1384532280 d:\dev\of\libs\poco\include\poco\platform_win32.h
+1384535880 d:\dev\of\libs\poco\include\poco\platform_win32.h
 
-1384532274 d:\dev\of\libs\poco\include\poco\platform_vms.h
+1384535874 d:\dev\of\libs\poco\include\poco\platform_vms.h
 
-1384532271 d:\dev\of\libs\poco\include\poco\platform_vx.h
+1384535871 d:\dev\of\libs\poco\include\poco\platform_vx.h
 
-1384532281 d:\dev\of\libs\poco\include\poco\platform_posix.h
+1384535881 d:\dev\of\libs\poco\include\poco\platform_posix.h
 
-1384532275 d:\dev\of\libs\poco\include\poco\bugcheck.h
+1384535875 d:\dev\of\libs\poco\include\poco\bugcheck.h
 	"Poco/Foundation.h"
 	<string>
 	<iostream>
 
-1384532278 d:\dev\of\libs\poco\include\poco\types.h
+1384535878 d:\dev\of\libs\poco\include\poco\types.h
 	"Poco/Foundation.h"
 
-1384532276 d:\dev\of\libs\poco\include\poco\timestamp.h
+1384535876 d:\dev\of\libs\poco\include\poco\timestamp.h
 	"Poco/Foundation.h"
 	<ctime>
 
-1384532279 d:\dev\of\libs\poco\include\poco\file_wince.h
+1384535879 d:\dev\of\libs\poco\include\poco\file_wince.h
 	"Poco/Foundation.h"
 	"Poco/Timestamp.h"
 
-1384532280 d:\dev\of\libs\poco\include\poco\file_win32u.h
+1384535880 d:\dev\of\libs\poco\include\poco\file_win32u.h
 	"Poco/Foundation.h"
 	"Poco/Timestamp.h"
 
-1384532281 d:\dev\of\libs\poco\include\poco\file_win32.h
+1384535881 d:\dev\of\libs\poco\include\poco\file_win32.h
 	"Poco/Foundation.h"
 	"Poco/Timestamp.h"
 
-1384532276 d:\dev\of\libs\poco\include\poco\file_vx.h
+1384535876 d:\dev\of\libs\poco\include\poco\file_vx.h
 	"Poco/Foundation.h"
 
-1384532279 d:\dev\of\libs\poco\include\poco\file_unix.h
+1384535879 d:\dev\of\libs\poco\include\poco\file_unix.h
 	"Poco/Foundation.h"
 
-1384532279 d:\dev\of\libs\poco\include\poco\file_vms.h
+1384535879 d:\dev\of\libs\poco\include\poco\file_vms.h
 	"Poco/Foundation.h"
 
-1384532295 d:\dev\of\libs\openframeworks\utils\oflog.h
+1384535895 d:\dev\of\libs\openframeworks\utils\oflog.h
 	"ofConstants.h"
 	"ofFileUtils.h"
 	"ofTypes.h"
 
-1384532290 d:\dev\of\libs\openframeworks\types\oftypes.h
+1384535890 d:\dev\of\libs\openframeworks\types\oftypes.h
 	"ofConstants.h"
 	"ofColor.h"
 	<memory>
 	<tr1/memory>
 	"Poco/Mutex.h"
 
-1384532290 d:\dev\of\libs\openframeworks\types\ofcolor.h
+1384535890 d:\dev\of\libs\openframeworks\types\ofcolor.h
 	<limits>
 	"ofMath.h"
 
-1384532292 d:\dev\of\libs\openframeworks\math\ofmath.h
+1384535892 d:\dev\of\libs\openframeworks\math\ofmath.h
 	"ofPoint.h"
 	"ofConstants.h"
 
-1384532290 d:\dev\of\libs\openframeworks\types\ofpoint.h
+1384535890 d:\dev\of\libs\openframeworks\types\ofpoint.h
 	"ofVec3f.h"
 
-1384532292 d:\dev\of\libs\openframeworks\math\ofvec3f.h
+1384535892 d:\dev\of\libs\openframeworks\math\ofvec3f.h
 	"ofVec2f.h"
 	"ofVec4f.h"
 	"ofConstants.h"
 	<cmath>
 	<iostream>
 
-1384532292 d:\dev\of\libs\openframeworks\math\ofvec2f.h
+1384535892 d:\dev\of\libs\openframeworks\math\ofvec2f.h
 	"ofConstants.h"
 
-1384532292 d:\dev\of\libs\openframeworks\math\ofvec4f.h
+1384535892 d:\dev\of\libs\openframeworks\math\ofvec4f.h
 	"ofConstants.h"
 
-1384532277 d:\dev\of\libs\poco\include\poco\mutex.h
+1384535877 d:\dev\of\libs\poco\include\poco\mutex.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	"Poco/ScopedLock.h"
@@ -243,47 +243,47 @@
 	"Poco/Mutex_VX.h"
 	"Poco/Mutex_POSIX.h"
 
-1384532275 d:\dev\of\libs\poco\include\poco\exception.h
+1384535875 d:\dev\of\libs\poco\include\poco\exception.h
 	"Poco/Foundation.h"
 	<stdexcept>
 
-1384532279 d:\dev\of\libs\poco\include\poco\scopedlock.h
+1384535879 d:\dev\of\libs\poco\include\poco\scopedlock.h
 	"Poco/Foundation.h"
 
-1384532279 d:\dev\of\libs\poco\include\poco\mutex_wince.h
+1384535879 d:\dev\of\libs\poco\include\poco\mutex_wince.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	"Poco/UnWindows.h"
 
-1384532278 d:\dev\of\libs\poco\include\poco\unwindows.h
+1384535878 d:\dev\of\libs\poco\include\poco\unwindows.h
 	<windows.h>
 
-1384532276 d:\dev\of\libs\poco\include\poco\mutex_win32.h
+1384535876 d:\dev\of\libs\poco\include\poco\mutex_win32.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	"Poco/UnWindows.h"
 
-1384532276 d:\dev\of\libs\poco\include\poco\mutex_vx.h
+1384535876 d:\dev\of\libs\poco\include\poco\mutex_vx.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	<semLib.h>
 	<errno.h>
 
-1384532275 d:\dev\of\libs\poco\include\poco\mutex_posix.h
+1384535875 d:\dev\of\libs\poco\include\poco\mutex_posix.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	<pthread.h>
 	<errno.h>
 
-1384532295 d:\dev\of\libs\openframeworks\utils\ofsystemutils.h
+1384535895 d:\dev\of\libs\openframeworks\utils\ofsystemutils.h
 
-1384532295 d:\dev\of\libs\openframeworks\utils\ofthread.h
+1384535895 d:\dev\of\libs\openframeworks\utils\ofthread.h
 	"ofConstants.h"
 	"ofTypes.h"
 	"Poco/Thread.h"
 	"Poco/Runnable.h"
 
-1384532271 d:\dev\of\libs\poco\include\poco\thread.h
+1384535871 d:\dev\of\libs\poco\include\poco\thread.h
 	"Poco/Foundation.h"
 	"Poco/Mutex.h"
 	"Poco/Thread_WINCE.h"
@@ -291,20 +291,20 @@
 	"Poco/Thread_VX.h"
 	"Poco/Thread_POSIX.h"
 
-1384532279 d:\dev\of\libs\poco\include\poco\thread_wince.h
+1384535879 d:\dev\of\libs\poco\include\poco\thread_wince.h
 	"Poco/Foundation.h"
 	"Poco/Runnable.h"
 	"Poco/UnWindows.h"
 
-1384532279 d:\dev\of\libs\poco\include\poco\runnable.h
+1384535879 d:\dev\of\libs\poco\include\poco\runnable.h
 	"Poco/Foundation.h"
 
-1384532275 d:\dev\of\libs\poco\include\poco\thread_win32.h
+1384535875 d:\dev\of\libs\poco\include\poco\thread_win32.h
 	"Poco/Foundation.h"
 	"Poco/Runnable.h"
 	"Poco/UnWindows.h"
 
-1384532274 d:\dev\of\libs\poco\include\poco\thread_vx.h
+1384535874 d:\dev\of\libs\poco\include\poco\thread_vx.h
 	"Poco/Foundation.h"
 	"Poco/Runnable.h"
 	"Poco/SignalHandler.h"
@@ -314,50 +314,50 @@
 	<taskLib.h>
 	<taskVarLib.h>
 
-1384532277 d:\dev\of\libs\poco\include\poco\signalhandler.h
+1384535877 d:\dev\of\libs\poco\include\poco\signalhandler.h
 	"Poco/Foundation.h"
 	<vector>
 	<setjmp.h>
 
-1384532274 d:\dev\of\libs\poco\include\poco\event.h
+1384535874 d:\dev\of\libs\poco\include\poco\event.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	"Poco/Event_WIN32.h"
 	"Poco/Event_VX.h"
 	"Poco/Event_POSIX.h"
 
-1384532272 d:\dev\of\libs\poco\include\poco\event_win32.h
+1384535872 d:\dev\of\libs\poco\include\poco\event_win32.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	"Poco/UnWindows.h"
 
-1384532278 d:\dev\of\libs\poco\include\poco\event_vx.h
+1384535878 d:\dev\of\libs\poco\include\poco\event_vx.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	<semLib.h>
 
-1384532276 d:\dev\of\libs\poco\include\poco\event_posix.h
+1384535876 d:\dev\of\libs\poco\include\poco\event_posix.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	<pthread.h>
 	<errno.h>
 
-1384532274 d:\dev\of\libs\poco\include\poco\refcountedobject.h
+1384535874 d:\dev\of\libs\poco\include\poco\refcountedobject.h
 	"Poco/Foundation.h"
 	"Poco/AtomicCounter.h"
 
-1384532275 d:\dev\of\libs\poco\include\poco\atomiccounter.h
+1384535875 d:\dev\of\libs\poco\include\poco\atomiccounter.h
 	"Poco/Foundation.h"
 	"Poco/UnWindows.h"
 	<libkern/OSAtomic.h>
 	"Poco/Mutex.h"
 
-1384532274 d:\dev\of\libs\poco\include\poco\autoptr.h
+1384535874 d:\dev\of\libs\poco\include\poco\autoptr.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	<algorithm>
 
-1384532280 d:\dev\of\libs\poco\include\poco\thread_posix.h
+1384535880 d:\dev\of\libs\poco\include\poco\thread_posix.h
 	"Poco/Foundation.h"
 	"Poco/Runnable.h"
 	"Poco/SignalHandler.h"
@@ -370,7 +370,7 @@
 	<errno.h>
 	<cstring>
 
-1384532295 d:\dev\of\libs\openframeworks\utils\ofurlfileloader.h
+1384535895 d:\dev\of\libs\openframeworks\utils\ofurlfileloader.h
 	<deque>
 	<queue>
 	"ofThread.h"
@@ -378,12 +378,12 @@
 	"ofFileUtils.h"
 	"Poco/Condition.h"
 
-1384532291 d:\dev\of\libs\openframeworks\events\ofevents.h
+1384535891 d:\dev\of\libs\openframeworks\events\ofevents.h
 	"ofConstants.h"
 	"ofPoint.h"
 	"ofEventUtils.h"
 
-1384532291 d:\dev\of\libs\openframeworks\events\ofeventutils.h
+1384535891 d:\dev\of\libs\openframeworks\events\ofeventutils.h
 	"ofConstants.h"
 	"Poco/PriorityEvent.h"
 	"Poco/PriorityDelegate.h"
@@ -391,12 +391,12 @@
 	<stdio.h>
 	<stdlib.h>
 
-1384532278 d:\dev\of\libs\poco\include\poco\priorityevent.h
+1384535878 d:\dev\of\libs\poco\include\poco\priorityevent.h
 	"Poco/AbstractEvent.h"
 	"Poco/PriorityStrategy.h"
 	"Poco/AbstractPriorityDelegate.h"
 
-1384532278 d:\dev\of\libs\poco\include\poco\abstractevent.h
+1384535878 d:\dev\of\libs\poco\include\poco\abstractevent.h
 	"Poco/Foundation.h"
 	"Poco/SingletonHolder.h"
 	"Poco/SharedPtr.h"
@@ -404,17 +404,17 @@
 	"Poco/ActiveMethod.h"
 	"Poco/Mutex.h"
 
-1384532281 d:\dev\of\libs\poco\include\poco\singletonholder.h
+1384535881 d:\dev\of\libs\poco\include\poco\singletonholder.h
 	"Poco/Foundation.h"
 	"Poco/Mutex.h"
 
-1384532272 d:\dev\of\libs\poco\include\poco\sharedptr.h
+1384535872 d:\dev\of\libs\poco\include\poco\sharedptr.h
 	"Poco/Foundation.h"
 	"Poco/Exception.h"
 	"Poco/AtomicCounter.h"
 	<algorithm>
 
-1384532278 d:\dev\of\libs\poco\include\poco\activeresult.h
+1384535878 d:\dev\of\libs\poco\include\poco\activeresult.h
 	"Poco/Foundation.h"
 	"Poco/Mutex.h"
 	"Poco/Event.h"
@@ -422,14 +422,14 @@
 	"Poco/Exception.h"
 	<algorithm>
 
-1384532279 d:\dev\of\libs\poco\include\poco\activemethod.h
+1384535879 d:\dev\of\libs\poco\include\poco\activemethod.h
 	"Poco/Foundation.h"
 	"Poco/ActiveResult.h"
 	"Poco/ActiveRunnable.h"
 	"Poco/ActiveStarter.h"
 	"Poco/AutoPtr.h"
 
-1384532276 d:\dev\of\libs\poco\include\poco\activerunnable.h
+1384535876 d:\dev\of\libs\poco\include\poco\activerunnable.h
 	"Poco/Foundation.h"
 	"Poco/ActiveResult.h"
 	"Poco/Runnable.h"
@@ -437,53 +437,53 @@
 	"Poco/AutoPtr.h"
 	"Poco/Exception.h"
 
-1384532273 d:\dev\of\libs\poco\include\poco\activestarter.h
+1384535873 d:\dev\of\libs\poco\include\poco\activestarter.h
 	"Poco/Foundation.h"
 	"Poco/ThreadPool.h"
 	"Poco/ActiveRunnable.h"
 
-1384532278 d:\dev\of\libs\poco\include\poco\threadpool.h
+1384535878 d:\dev\of\libs\poco\include\poco\threadpool.h
 	"Poco/Foundation.h"
 	"Poco/Thread.h"
 	"Poco/Mutex.h"
 	<vector>
 
-1384532274 d:\dev\of\libs\poco\include\poco\prioritystrategy.h
+1384535874 d:\dev\of\libs\poco\include\poco\prioritystrategy.h
 	"Poco/NotificationStrategy.h"
 	"Poco/SharedPtr.h"
 	<vector>
 
-1384532277 d:\dev\of\libs\poco\include\poco\notificationstrategy.h
+1384535877 d:\dev\of\libs\poco\include\poco\notificationstrategy.h
 	"Poco/Foundation.h"
 
-1384532279 d:\dev\of\libs\poco\include\poco\abstractprioritydelegate.h
+1384535879 d:\dev\of\libs\poco\include\poco\abstractprioritydelegate.h
 	"Poco/Foundation.h"
 	"Poco/AbstractDelegate.h"
 
-1384532279 d:\dev\of\libs\poco\include\poco\abstractdelegate.h
+1384535879 d:\dev\of\libs\poco\include\poco\abstractdelegate.h
 	"Poco/Foundation.h"
 
-1384532272 d:\dev\of\libs\poco\include\poco\prioritydelegate.h
+1384535872 d:\dev\of\libs\poco\include\poco\prioritydelegate.h
 	"Poco/Foundation.h"
 	"Poco/AbstractPriorityDelegate.h"
 	"Poco/PriorityExpire.h"
 	"Poco/FunctionPriorityDelegate.h"
 	"Poco/Mutex.h"
 
-1384532276 d:\dev\of\libs\poco\include\poco\priorityexpire.h
+1384535876 d:\dev\of\libs\poco\include\poco\priorityexpire.h
 	"Poco/Foundation.h"
 	"Poco/Timestamp.h"
 	"Poco/AbstractPriorityDelegate.h"
 
-1384532277 d:\dev\of\libs\poco\include\poco\functionprioritydelegate.h
+1384535877 d:\dev\of\libs\poco\include\poco\functionprioritydelegate.h
 	"Poco/Foundation.h"
 	"Poco/AbstractPriorityDelegate.h"
 	"Poco/Mutex.h"
 
-1384532291 d:\dev\of\libs\openframeworks\events\ofdelegate.h
+1384535891 d:\dev\of\libs\openframeworks\events\ofdelegate.h
 	"Poco/AbstractPriorityDelegate.h"
 
-1384532274 d:\dev\of\libs\poco\include\poco\condition.h
+1384535874 d:\dev\of\libs\poco\include\poco\condition.h
 	"Poco/Foundation.h"
 	"Poco/Mutex.h"
 	"Poco/ScopedUnlock.h"
@@ -491,21 +491,21 @@
 	"Poco/Exception.h"
 	<deque>
 
-1384532272 d:\dev\of\libs\poco\include\poco\scopedunlock.h
+1384535872 d:\dev\of\libs\poco\include\poco\scopedunlock.h
 	"Poco/Foundation.h"
 
-1384532295 d:\dev\of\libs\openframeworks\utils\ofutils.h
+1384535895 d:\dev\of\libs\openframeworks\utils\ofutils.h
 	"ofConstants.h"
 	<bitset>
 	"ofLog.h"
 	<shellapi.h>
 	"Poco/Path.h"
 
-1384532279 d:\dev\of\libs\poco\include\poco\path.h
+1384535879 d:\dev\of\libs\poco\include\poco\path.h
 	"Poco/Foundation.h"
 	<vector>
 
-1384532290 d:\dev\of\libs\openframeworks\types\ofbasetypes.h
+1384535890 d:\dev\of\libs\openframeworks\types\ofbasetypes.h
 	"ofPoint.h"
 	"ofRectangle.h"
 	"ofConstants.h"
@@ -515,12 +515,12 @@
 	"ofMatrix4x4.h"
 	"ofTypes.h"
 
-1384532290 d:\dev\of\libs\openframeworks\types\ofrectangle.h
+1384535890 d:\dev\of\libs\openframeworks\types\ofrectangle.h
 	"ofConstants.h"
 	"ofPoint.h"
 	"ofLog.h"
 
-1384532295 d:\dev\of\libs\openframeworks\3d\ofmesh.h
+1384535895 d:\dev\of\libs\openframeworks\3d\ofmesh.h
 	"ofVec3f.h"
 	"ofVec2f.h"
 	"ofColor.h"
@@ -528,32 +528,32 @@
 	"ofConstants.h"
 	"ofGLUtils.h"
 
-1384532292 d:\dev\of\libs\openframeworks\gl\ofglutils.h
+1384535892 d:\dev\of\libs\openframeworks\gl\ofglutils.h
 	"ofConstants.h"
 	"ofTypes.h"
 	"ofPixels.h"
 
-1384532292 d:\dev\of\libs\openframeworks\graphics\ofpixels.h
+1384535892 d:\dev\of\libs\openframeworks\graphics\ofpixels.h
 	"ofConstants.h"
 	"ofUtils.h"
 	"ofColor.h"
 	"ofMath.h"
 	<limits>
 
-1384532292 d:\dev\of\libs\openframeworks\math\ofmatrix4x4.h
+1384535892 d:\dev\of\libs\openframeworks\math\ofmatrix4x4.h
 	"ofVec3f.h"
 	"ofVec4f.h"
 	"ofQuaternion.h"
 	"ofConstants.h"
 	<cmath>
 
-1384532292 d:\dev\of\libs\openframeworks\math\ofquaternion.h
+1384535892 d:\dev\of\libs\openframeworks\math\ofquaternion.h
 	"ofConstants.h"
 	"ofVec3f.h"
 	"ofVec4f.h"
 	<cmath>
 
-1384532295 d:\dev\of\libs\openframeworks\utils\ofxml.h
+1384535895 d:\dev\of\libs\openframeworks\utils\ofxml.h
 	"ofMain.h"
 	<numeric>
 	<Poco/DOM/Document.h>
@@ -575,7 +575,7 @@
 	<Poco/DOM/NamedNodeMap.h>
 	<Poco/DOM/ChildNodesList.h>
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\document.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\document.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/AbstractContainerNode.h"
 	"Poco/DOM/DocumentEvent.h"
@@ -584,93 +584,93 @@
 	"Poco/XML/NamePool.h"
 	"Poco/AutoReleasePool.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\xml.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\xml.h
 	"Poco/Foundation.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\abstractcontainernode.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\abstractcontainernode.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/AbstractNode.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\abstractnode.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\abstractnode.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/Node.h"
 	"Poco/DOM/MutationEvent.h"
 	"Poco/XML/XMLString.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\node.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\node.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/EventTarget.h"
 	"Poco/XML/XMLString.h"
 	"Poco/SAX/NamespaceSupport.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\dom\eventtarget.h
+1384535885 d:\dev\of\libs\poco\include\poco\dom\eventtarget.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/DOMObject.h"
 	"Poco/XML/XMLString.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\domobject.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\domobject.h
 	"Poco/XML/XML.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\xmlstring.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\xmlstring.h
 	"Poco/XML/XML.h"
 
-1384532286 d:\dev\of\libs\poco\include\poco\sax\namespacesupport.h
+1384535886 d:\dev\of\libs\poco\include\poco\sax\namespacesupport.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 	<set>
 	<map>
 	<vector>
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\mutationevent.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\mutationevent.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/Event.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\event.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\event.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 	"Poco/DOM/DOMObject.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\documentevent.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\documentevent.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\element.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\element.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/AbstractContainerNode.h"
 	"Poco/XML/Name.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\name.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\name.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\namepool.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\namepool.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 	"Poco/XML/Name.h"
 
-1384532273 d:\dev\of\libs\poco\include\poco\autoreleasepool.h
+1384535873 d:\dev\of\libs\poco\include\poco\autoreleasepool.h
 	"Poco/Foundation.h"
 	<list>
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\documentfragment.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\documentfragment.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/AbstractContainerNode.h"
 	"Poco/XML/XMLString.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\domparser.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\domparser.h
 	"Poco/XML/XML.h"
 	"Poco/SAX/SAXParser.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\sax\saxparser.h
+1384535885 d:\dev\of\libs\poco\include\poco\sax\saxparser.h
 	"Poco/XML/XML.h"
 	"Poco/SAX/XMLReader.h"
 	"Poco/XML/ParserEngine.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\sax\xmlreader.h
+1384535885 d:\dev\of\libs\poco\include\poco\sax\xmlreader.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\parserengine.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\parserengine.h
 	"Poco/XML/XML.h"
 	<expat.h>
 	"Poco/XML/expat.h"
@@ -681,39 +681,39 @@
 	<map>
 	<vector>
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\expat.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\expat.h
 	<stdlib.h>
 	"expat_external.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\expat_external.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\expat_external.h
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\xmlstream.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\xmlstream.h
 	"Poco/XML/XML.h"
 	<istream>
 	<ostream>
 
-1384532285 d:\dev\of\libs\poco\include\poco\sax\locator.h
+1384535885 d:\dev\of\libs\poco\include\poco\sax\locator.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 
-1384532273 d:\dev\of\libs\poco\include\poco\textencoding.h
+1384535873 d:\dev\of\libs\poco\include\poco\textencoding.h
 	"Poco/Foundation.h"
 	"Poco/SharedPtr.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\domexception.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\domexception.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLException.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\xmlexception.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\xmlexception.h
 	"Poco/XML/XML.h"
 	"Poco/Exception.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\sax\saxexception.h
+1384535885 d:\dev\of\libs\poco\include\poco\sax\saxexception.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLException.h"
 	"Poco/XML/XMLString.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\xml\xmlwriter.h
+1384535885 d:\dev\of\libs\poco\include\poco\xml\xmlwriter.h
 	"Poco/XML/XML.h"
 	"Poco/SAX/ContentHandler.h"
 	"Poco/SAX/LexicalHandler.h"
@@ -727,95 +727,95 @@
 	<vector>
 	<map>
 
-1384532285 d:\dev\of\libs\poco\include\poco\sax\contenthandler.h
+1384535885 d:\dev\of\libs\poco\include\poco\sax\contenthandler.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\sax\lexicalhandler.h
+1384535885 d:\dev\of\libs\poco\include\poco\sax\lexicalhandler.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\sax\dtdhandler.h
+1384535885 d:\dev\of\libs\poco\include\poco\sax\dtdhandler.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 
-1384532274 d:\dev\of\libs\poco\include\poco\streamconverter.h
+1384535874 d:\dev\of\libs\poco\include\poco\streamconverter.h
 	"Poco/Foundation.h"
 	"Poco/TextEncoding.h"
 	"Poco/UnbufferedStreamBuf.h"
 	<istream>
 	<ostream>
 
-1384532276 d:\dev\of\libs\poco\include\poco\unbufferedstreambuf.h
+1384535876 d:\dev\of\libs\poco\include\poco\unbufferedstreambuf.h
 	"Poco/Foundation.h"
 	"Poco/StreamUtil.h"
 	<streambuf>
 	<iosfwd>
 	<ios>
 
-1384532275 d:\dev\of\libs\poco\include\poco\streamutil.h
+1384535875 d:\dev\of\libs\poco\include\poco\streamutil.h
 	"Poco/Foundation.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\domwriter.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\domwriter.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 	"Poco/XML/XMLStream.h"
 	"Poco/TextEncoding.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\attr.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\attr.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/AbstractNode.h"
 	"Poco/DOM/Element.h"
 	"Poco/XML/Name.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\dom\text.h
+1384535885 d:\dev\of\libs\poco\include\poco\dom\text.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/CharacterData.h"
 	"Poco/XML/XMLString.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\characterdata.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\characterdata.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/AbstractNode.h"
 	"Poco/XML/XMLString.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\nodeiterator.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\nodeiterator.h
 	"Poco/XML/XML.h"
 
-1384532285 d:\dev\of\libs\poco\include\poco\dom\nodefilter.h
+1384535885 d:\dev\of\libs\poco\include\poco\dom\nodefilter.h
 	"Poco/XML/XML.h"
 	"Poco/XML/XMLString.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\namednodemap.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\namednodemap.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/DOMObject.h"
 	"Poco/XML/XMLString.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\childnodeslist.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\childnodeslist.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/NodeList.h"
 
-1384532284 d:\dev\of\libs\poco\include\poco\dom\nodelist.h
+1384535884 d:\dev\of\libs\poco\include\poco\dom\nodelist.h
 	"Poco/XML/XML.h"
 	"Poco/DOM/DOMObject.h"
 
-1384532290 d:\dev\of\libs\openframeworks\types\ofparameter.h
+1384535890 d:\dev\of\libs\openframeworks\types\ofparameter.h
 	"ofEvents.h"
 	"ofTypes.h"
 	"ofUtils.h"
 
-1384532290 d:\dev\of\libs\openframeworks\types\ofparametergroup.h
+1384535890 d:\dev\of\libs\openframeworks\types\ofparametergroup.h
 	<map>
 	"Poco/Any.h"
 	"ofConstants.h"
 	"ofLog.h"
 	"ofParameter.h"
 
-1384532272 d:\dev\of\libs\poco\include\poco\any.h
+1384535872 d:\dev\of\libs\poco\include\poco\any.h
 	"Poco/Exception.h"
 	<algorithm>
 	<typeinfo>
 
-1384532292 d:\dev\of\libs\openframeworks\math\ofvectormath.h
+1384535892 d:\dev\of\libs\openframeworks\math\ofvectormath.h
 	"ofVec2f.h"
 	"ofVec3f.h"
 	"ofVec4f.h"
@@ -823,10 +823,10 @@
 	"ofMatrix4x4.h"
 	"ofQuaternion.h"
 
-1384532292 d:\dev\of\libs\openframeworks\math\ofmatrix3x3.h
+1384535892 d:\dev\of\libs\openframeworks\math\ofmatrix3x3.h
 	"ofConstants.h"
 
-1384532291 d:\dev\of\libs\openframeworks\communication\ofserial.h
+1384535891 d:\dev\of\libs\openframeworks\communication\ofserial.h
 	"ofConstants.h"
 	"ofTypes.h"
 	<termios.h>
@@ -839,7 +839,7 @@
 	<winioctl.h>
 	<initguid.h>
 
-1384532291 d:\dev\of\libs\openframeworks\communication\ofarduino.h
+1384535891 d:\dev\of\libs\openframeworks\communication\ofarduino.h
 	<list>
 	<vector>
 	<string>
@@ -847,21 +847,21 @@
 	"ofEvents.h"
 	"ofSerial.h"
 
-1384532291 d:\dev\of\libs\openframeworks\gl\offbo.h
+1384535891 d:\dev\of\libs\openframeworks\gl\offbo.h
 	"ofTexture.h"
 
-1384532291 d:\dev\of\libs\openframeworks\gl\oftexture.h
+1384535891 d:\dev\of\libs\openframeworks\gl\oftexture.h
 	"ofPoint.h"
 	"ofRectangle.h"
 	"ofBaseTypes.h"
 	"ofConstants.h"
 	"ofVboMesh.h"
 
-1384532291 d:\dev\of\libs\openframeworks\gl\ofvbomesh.h
+1384535891 d:\dev\of\libs\openframeworks\gl\ofvbomesh.h
 	"ofMesh.h"
 	"ofVbo.h"
 
-1384532291 d:\dev\of\libs\openframeworks\gl\ofvbo.h
+1384535891 d:\dev\of\libs\openframeworks\gl\ofvbo.h
 	"ofConstants.h"
 	"ofVec3f.h"
 	"ofColor.h"
@@ -870,7 +870,7 @@
 	"ofGLUtils.h"
 	<map>
 
-1384532291 d:\dev\of\libs\openframeworks\gl\ofglrenderer.h
+1384535891 d:\dev\of\libs\openframeworks\gl\ofglrenderer.h
 	"ofBaseTypes.h"
 	"ofPolyline.h"
 	"ofMatrix4x4.h"
@@ -878,13 +878,13 @@
 	"ofGraphics.h"
 	"ofMatrixStack.h"
 
-1384532293 d:\dev\of\libs\openframeworks\graphics\ofpolyline.h
+1384535893 d:\dev\of\libs\openframeworks\graphics\ofpolyline.h
 	"ofPoint.h"
 	"ofConstants.h"
 	<deque>
 	"ofRectangle.h"
 
-1384532293 d:\dev\of\libs\openframeworks\graphics\ofgraphics.h
+1384535893 d:\dev\of\libs\openframeworks\graphics\ofgraphics.h
 	"ofConstants.h"
 	"ofColor.h"
 	"ofPoint.h"
@@ -893,27 +893,27 @@
 	"ofTypes.h"
 	"ofBaseTypes.h"
 
-1384532295 d:\dev\of\libs\openframeworks\utils\ofmatrixstack.h
+1384535895 d:\dev\of\libs\openframeworks\utils\ofmatrixstack.h
 	<stack>
 	"ofConstants.h"
 	"ofRectangle.h"
 	"ofGraphics.h"
 	"ofMatrix4x4.h"
 
-1384532291 d:\dev\of\libs\openframeworks\gl\oflight.h
+1384535891 d:\dev\of\libs\openframeworks\gl\oflight.h
 	"ofNode.h"
 	"ofColor.h"
 	"of3dGraphics.h"
 
-1384532294 d:\dev\of\libs\openframeworks\3d\ofnode.h
+1384535894 d:\dev\of\libs\openframeworks\3d\ofnode.h
 	"ofVectorMath.h"
 	"of3dUtils.h"
 	"ofGraphics.h"
 
-1384532295 d:\dev\of\libs\openframeworks\3d\of3dutils.h
+1384535895 d:\dev\of\libs\openframeworks\3d\of3dutils.h
 	"ofVectorMath.h"
 
-1384532293 d:\dev\of\libs\openframeworks\graphics\of3dgraphics.h
+1384535893 d:\dev\of\libs\openframeworks\graphics\of3dgraphics.h
 	"ofConstants.h"
 	"ofColor.h"
 	"ofPoint.h"
@@ -924,17 +924,17 @@
 	"ofGLRenderer.h"
 	"of3dPrimitives.h"
 
-1384532295 d:\dev\of\libs\openframeworks\3d\of3dprimitives.h
+1384535895 d:\dev\of\libs\openframeworks\3d\of3dprimitives.h
 	"ofVboMesh.h"
 	"ofRectangle.h"
 	"ofNode.h"
 	"ofTexture.h"
 	<map>
 
-1384532291 d:\dev\of\libs\openframeworks\gl\ofmaterial.h
+1384535891 d:\dev\of\libs\openframeworks\gl\ofmaterial.h
 	"ofColor.h"
 
-1384532292 d:\dev\of\libs\openframeworks\gl\ofshader.h
+1384535892 d:\dev\of\libs\openframeworks\gl\ofshader.h
 	"ofConstants.h"
 	"ofBaseTypes.h"
 	"ofTexture.h"
@@ -942,12 +942,12 @@
 	<map>
 	"ofAppBaseWindow.h"
 
-1384532290 d:\dev\of\libs\openframeworks\app\ofappbasewindow.h
+1384535890 d:\dev\of\libs\openframeworks\app\ofappbasewindow.h
 	"ofPoint.h"
 	"ofTypes.h"
 	<X11/Xlib.h>
 
-1384532291 d:\dev\of\libs\openframeworks\gl\ofglprogrammablerenderer.h
+1384535891 d:\dev\of\libs\openframeworks\gl\ofglprogrammablerenderer.h
 	"ofBaseTypes.h"
 	"ofPolyline.h"
 	"ofMatrix4x4.h"
@@ -956,7 +956,7 @@
 	"ofMatrixStack.h"
 	<stack>
 
-1384532293 d:\dev\of\libs\openframeworks\graphics\ofcairorenderer.h
+1384535893 d:\dev\of\libs\openframeworks\graphics\ofcairorenderer.h
 	"cairo-features.h"
 	"cairo-pdf.h"
 	"cairo-svg.h"
@@ -967,24 +967,24 @@
 	"ofBaseTypes.h"
 	"ofPath.h"
 
-1384532296 d:\dev\of\libs\cairo\include\cairo\cairo-features.h
+1384535896 d:\dev\of\libs\cairo\include\cairo\cairo-features.h
 
-1384532296 d:\dev\of\libs\cairo\include\cairo\cairo-pdf.h
+1384535896 d:\dev\of\libs\cairo\include\cairo\cairo-pdf.h
 	"cairo.h"
 
-1384532296 d:\dev\of\libs\cairo\include\cairo\cairo.h
+1384535896 d:\dev\of\libs\cairo\include\cairo\cairo.h
 	"cairo-version.h"
 	"cairo-features.h"
 	"cairo-deprecated.h"
 
-1384532296 d:\dev\of\libs\cairo\include\cairo\cairo-version.h
+1384535896 d:\dev\of\libs\cairo\include\cairo\cairo-version.h
 
-1384532296 d:\dev\of\libs\cairo\include\cairo\cairo-deprecated.h
+1384535896 d:\dev\of\libs\cairo\include\cairo\cairo-deprecated.h
 
-1384532296 d:\dev\of\libs\cairo\include\cairo\cairo-svg.h
+1384535896 d:\dev\of\libs\cairo\include\cairo\cairo-svg.h
 	"cairo.h"
 
-1384532293 d:\dev\of\libs\openframeworks\graphics\ofpath.h
+1384535893 d:\dev\of\libs\openframeworks\graphics\ofpath.h
 	"ofConstants.h"
 	"ofPoint.h"
 	"ofColor.h"
@@ -993,25 +993,25 @@
 	"ofVboMesh.h"
 	"ofTessellator.h"
 
-1384532292 d:\dev\of\libs\openframeworks\graphics\oftessellator.h
+1384535892 d:\dev\of\libs\openframeworks\graphics\oftessellator.h
 	"ofConstants.h"
 	"ofMesh.h"
 	"ofTypes.h"
 	"ofPolyline.h"
 	"tesselator.h"
 
-1384532293 d:\dev\of\libs\openframeworks\graphics\ofimage.h
+1384535893 d:\dev\of\libs\openframeworks\graphics\ofimage.h
 	"ofFileUtils.h"
 	"ofTexture.h"
 	"ofPixels.h"
 	"ofBaseTypes.h"
 	"ofConstants.h"
 
-1384532293 d:\dev\of\libs\openframeworks\graphics\ofrenderercollection.h
+1384535893 d:\dev\of\libs\openframeworks\graphics\ofrenderercollection.h
 	"ofBaseTypes.h"
 	"ofGLRenderer.h"
 
-1384532292 d:\dev\of\libs\openframeworks\graphics\oftruetypefont.h
+1384535892 d:\dev\of\libs\openframeworks\graphics\oftruetypefont.h
 	<vector>
 	"ofPoint.h"
 	"ofRectangle.h"
@@ -1020,19 +1020,19 @@
 	"ofTexture.h"
 	"ofMesh.h"
 
-1384532290 d:\dev\of\libs\openframeworks\app\ofbaseapp.h
+1384535890 d:\dev\of\libs\openframeworks\app\ofbaseapp.h
 	"ofPoint.h"
 	"ofEvents.h"
 	"ofBaseTypes.h"
 
-1384532290 d:\dev\of\libs\openframeworks\app\ofapprunner.h
+1384535890 d:\dev\of\libs\openframeworks\app\ofapprunner.h
 	"ofConstants.h"
 	"ofPoint.h"
 	"ofRectangle.h"
 	"ofTypes.h"
 	<X11/Xlib.h>
 
-1384532292 d:\dev\of\libs\openframeworks\sound\ofsoundstream.h
+1384535892 d:\dev\of\libs\openframeworks\sound\ofsoundstream.h
 	"ofConstants.h"
 	"ofBaseTypes.h"
 	"ofBaseApp.h"
@@ -1043,20 +1043,20 @@
 	"ofxAndroidSoundStream.h"
 	"ofxiOSSoundStream.h"
 
-1384532292 d:\dev\of\libs\openframeworks\sound\ofbasesoundstream.h
+1384535892 d:\dev\of\libs\openframeworks\sound\ofbasesoundstream.h
 	"ofConstants.h"
 
-1384532292 d:\dev\of\libs\openframeworks\sound\ofrtaudiosoundstream.h
-	"ofConstants.h"
-	"ofBaseSoundStream.h"
-	"ofTypes.h"
-
-1384532292 d:\dev\of\libs\openframeworks\sound\ofpasoundstream.h
+1384535892 d:\dev\of\libs\openframeworks\sound\ofrtaudiosoundstream.h
 	"ofConstants.h"
 	"ofBaseSoundStream.h"
 	"ofTypes.h"
 
-1384532292 d:\dev\of\libs\openframeworks\sound\ofsoundplayer.h
+1384535892 d:\dev\of\libs\openframeworks\sound\ofpasoundstream.h
+	"ofConstants.h"
+	"ofBaseSoundStream.h"
+	"ofTypes.h"
+
+1384535892 d:\dev\of\libs\openframeworks\sound\ofsoundplayer.h
 	"ofConstants.h"
 	"ofTypes.h"
 	"ofBaseTypes.h"
@@ -1067,30 +1067,30 @@
 	"ofxiOSSoundPlayer.h"
 	"ofxAndroidSoundPlayer.h"
 
-1384532292 d:\dev\of\libs\openframeworks\sound\ofbasesoundplayer.h
+1384535892 d:\dev\of\libs\openframeworks\sound\ofbasesoundplayer.h
 	"ofConstants.h"
 
-1384532292 d:\dev\of\libs\openframeworks\sound\offmodsoundplayer.h
+1384535892 d:\dev\of\libs\openframeworks\sound\offmodsoundplayer.h
 	"ofConstants.h"
 	"ofBaseSoundPlayer.h"
 	"fmod.h"
 	"fmod_errors.h"
 
-1384532296 d:\dev\of\libs\fmodex\include\fmod.h
+1384535896 d:\dev\of\libs\fmodex\include\fmod.h
 	"fmod_codec.h"
 	"fmod_dsp.h"
 	"fmod_memoryinfo.h"
 
-1384532296 d:\dev\of\libs\fmodex\include\fmod_codec.h
+1384535896 d:\dev\of\libs\fmodex\include\fmod_codec.h
 
-1384532296 d:\dev\of\libs\fmodex\include\fmod_dsp.h
+1384535896 d:\dev\of\libs\fmodex\include\fmod_dsp.h
 
-1384532296 d:\dev\of\libs\fmodex\include\fmod_memoryinfo.h
+1384535896 d:\dev\of\libs\fmodex\include\fmod_memoryinfo.h
 
-1384532296 d:\dev\of\libs\fmodex\include\fmod_errors.h
+1384535896 d:\dev\of\libs\fmodex\include\fmod_errors.h
 	"fmod.h"
 
-1384532292 d:\dev\of\libs\openframeworks\sound\ofopenalsoundplayer.h
+1384535892 d:\dev\of\libs\openframeworks\sound\ofopenalsoundplayer.h
 	"ofConstants.h"
 	"ofBaseSoundPlayer.h"
 	"ofEvents.h"
@@ -1104,7 +1104,7 @@
 	<sndfile.h>
 	<mpg123.h>
 
-1384532293 d:\dev\of\libs\openframeworks\video\ofvideograbber.h
+1384535893 d:\dev\of\libs\openframeworks\video\ofvideograbber.h
 	"ofConstants.h"
 	"ofTexture.h"
 	"ofBaseTypes.h"
@@ -1117,14 +1117,14 @@
 	"ofGstVideoGrabber.h"
 	"ofxAndroidVideoGrabber.h"
 
-1384532293 d:\dev\of\libs\openframeworks\video\ofquicktimegrabber.h
+1384535893 d:\dev\of\libs\openframeworks\video\ofquicktimegrabber.h
 	"ofConstants.h"
 	"ofQtUtils.h"
 	"ofTexture.h"
 	"ofBaseTypes.h"
 	"ofPixels.h"
 
-1384532294 d:\dev\of\libs\openframeworks\video\ofqtutils.h
+1384535894 d:\dev\of\libs\openframeworks\video\ofqtutils.h
 	"ofConstants.h"
 	<QuickTime/QuickTime.h>
 	<CoreServices/CoreServices.h>
@@ -1135,26 +1135,26 @@
 	<TextUtils.h>
 	<MediaHandlers.h>
 
-1384532309 d:\dev\of\libs\quicktime\include\qtml.h
+1384535909 d:\dev\of\libs\quicktime\include\qtml.h
 	<MacTypes.h>
 	<MacMemory.h>
 	<MacWindows.h>
 	<OSUtils.h>
 	<Files.h>
 
-1384532304 d:\dev\of\libs\quicktime\include\mactypes.h
+1384535904 d:\dev\of\libs\quicktime\include\mactypes.h
 	<ConditionalMacros.h>
 
-1384532306 d:\dev\of\libs\quicktime\include\conditionalmacros.h
+1384535906 d:\dev\of\libs\quicktime\include\conditionalmacros.h
 
-1384532305 d:\dev\of\libs\quicktime\include\macmemory.h
+1384535905 d:\dev\of\libs\quicktime\include\macmemory.h
 	<MacTypes.h>
 	<MixedMode.h>
 
-1384532303 d:\dev\of\libs\quicktime\include\mixedmode.h
+1384535903 d:\dev\of\libs\quicktime\include\mixedmode.h
 	<MacTypes.h>
 
-1384532311 d:\dev\of\libs\quicktime\include\macwindows.h
+1384535911 d:\dev\of\libs\quicktime\include\macwindows.h
 	<MacTypes.h>
 	<Aliases.h>
 	<AppleEvents.h>
@@ -1169,16 +1169,16 @@
 	<Icons.h>
 	<MacErrors.h>
 
-1384532303 d:\dev\of\libs\quicktime\include\aliases.h
+1384535903 d:\dev\of\libs\quicktime\include\aliases.h
 	<MacTypes.h>
 	<AppleTalk.h>
 	<Files.h>
 
-1384532308 d:\dev\of\libs\quicktime\include\appletalk.h
+1384535908 d:\dev\of\libs\quicktime\include\appletalk.h
 	<MacTypes.h>
 	<OSUtils.h>
 
-1384532309 d:\dev\of\libs\quicktime\include\osutils.h
+1384535909 d:\dev\of\libs\quicktime\include\osutils.h
 	<MacTypes.h>
 	<MixedMode.h>
 	<MacMemory.h>
@@ -1186,18 +1186,18 @@
 	<DateTimeUtils.h>
 	<Endian.h>
 
-1384532308 d:\dev\of\libs\quicktime\include\patches.h
+1384535908 d:\dev\of\libs\quicktime\include\patches.h
 	<MacTypes.h>
 
-1384532309 d:\dev\of\libs\quicktime\include\datetimeutils.h
+1384535909 d:\dev\of\libs\quicktime\include\datetimeutils.h
 	<ConditionalMacros.h>
 	<MacTypes.h>
 
-1384532310 d:\dev\of\libs\quicktime\include\endian.h
+1384535910 d:\dev\of\libs\quicktime\include\endian.h
 	<ConditionalMacros.h>
 	<MacTypes.h>
 
-1384532306 d:\dev\of\libs\quicktime\include\files.h
+1384535906 d:\dev\of\libs\quicktime\include\files.h
 	<MacTypes.h>
 	<MixedMode.h>
 	<OSUtils.h>
@@ -1205,67 +1205,67 @@
 	<UTCUtils.h>
 	<Finder.h>
 
-1384532305 d:\dev\of\libs\quicktime\include\textcommon.h
+1384535905 d:\dev\of\libs\quicktime\include\textcommon.h
 	<MacTypes.h>
 
-1384532309 d:\dev\of\libs\quicktime\include\utcutils.h
+1384535909 d:\dev\of\libs\quicktime\include\utcutils.h
 	<MacTypes.h>
 	<MacErrors.h>
 
-1384532308 d:\dev\of\libs\quicktime\include\macerrors.h
+1384535908 d:\dev\of\libs\quicktime\include\macerrors.h
 	<ConditionalMacros.h>
 
-1384532304 d:\dev\of\libs\quicktime\include\finder.h
+1384535904 d:\dev\of\libs\quicktime\include\finder.h
 	<MacTypes.h>
 
-1384532308 d:\dev\of\libs\quicktime\include\appleevents.h
+1384535908 d:\dev\of\libs\quicktime\include\appleevents.h
 	<MacTypes.h>
 	<MixedMode.h>
 	<Notification.h>
 	<Events.h>
 	<AEDataModel.h>
 
-1384532305 d:\dev\of\libs\quicktime\include\notification.h
+1384535905 d:\dev\of\libs\quicktime\include\notification.h
 	<MacTypes.h>
 	<OSUtils.h>
 
-1384532307 d:\dev\of\libs\quicktime\include\events.h
+1384535907 d:\dev\of\libs\quicktime\include\events.h
 	<OSUtils.h>
 	<Quickdraw.h>
 	<MacTypes.h>
 	<Endian.h>
 
-1384532311 d:\dev\of\libs\quicktime\include\quickdraw.h
+1384535911 d:\dev\of\libs\quicktime\include\quickdraw.h
 	<Components.h>
 	<MacTypes.h>
 	<MixedMode.h>
 	<QuickdrawText.h>
 
-1384532303 d:\dev\of\libs\quicktime\include\components.h
+1384535903 d:\dev\of\libs\quicktime\include\components.h
 	<MacErrors.h>
 	<MacTypes.h>
 	<MixedMode.h>
 
-1384532302 d:\dev\of\libs\quicktime\include\quickdrawtext.h
+1384535902 d:\dev\of\libs\quicktime\include\quickdrawtext.h
 	<MacTypes.h>
 	<MixedMode.h>
 
-1384532311 d:\dev\of\libs\quicktime\include\aedatamodel.h
+1384535911 d:\dev\of\libs\quicktime\include\aedatamodel.h
 	<MacTypes.h>
 	<MixedMode.h>
 
-1384532310 d:\dev\of\libs\quicktime\include\collections.h
+1384535910 d:\dev\of\libs\quicktime\include\collections.h
 	<MacTypes.h>
 	<MixedMode.h>
 
-1384532305 d:\dev\of\libs\quicktime\include\drag.h
+1384535905 d:\dev\of\libs\quicktime\include\drag.h
 	<MacTypes.h>
 	<Events.h>
 	<Files.h>
 	<AppleEvents.h>
 	<Quickdraw.h>
 
-1384532309 d:\dev\of\libs\quicktime\include\menus.h
+1384535909 d:\dev\of\libs\quicktime\include\menus.h
 	<MacTypes.h>
 	<Events.h>
 	<Quickdraw.h>
@@ -1276,36 +1276,36 @@
 	<Collections.h>
 	<MacErrors.h>
 
-1384532304 d:\dev\of\libs\quicktime\include\fonts.h
+1384535904 d:\dev\of\libs\quicktime\include\fonts.h
 	<MacTypes.h>
 	<Files.h>
 	<Quickdraw.h>
 	<TextCommon.h>
 	<MacErrors.h>
 
-1384532308 d:\dev\of\libs\quicktime\include\processes.h
+1384535908 d:\dev\of\libs\quicktime\include\processes.h
 	<MacTypes.h>
 	<Events.h>
 	<Files.h>
 
-1384532306 d:\dev\of\libs\quicktime\include\qdoffscreen.h
+1384535906 d:\dev\of\libs\quicktime\include\qdoffscreen.h
 	<MacErrors.h>
 	<Quickdraw.h>
 
-1384532303 d:\dev\of\libs\quicktime\include\icons.h
+1384535903 d:\dev\of\libs\quicktime\include\icons.h
 	<MacTypes.h>
 	<Quickdraw.h>
 	<Files.h>
 	<CodeFragments.h>
 
-1384532302 d:\dev\of\libs\quicktime\include\codefragments.h
+1384535902 d:\dev\of\libs\quicktime\include\codefragments.h
 	<MacTypes.h>
 	<Files.h>
 
-1384532308 d:\dev\of\libs\quicktime\include\fixmath.h
+1384535908 d:\dev\of\libs\quicktime\include\fixmath.h
 	<MacTypes.h>
 
-1384532303 d:\dev\of\libs\quicktime\include\quicktimecomponents.h
+1384535903 d:\dev\of\libs\quicktime\include\quicktimecomponents.h
 	<MacTypes.h>
 	<MixedMode.h>
 	<Components.h>
@@ -1316,19 +1316,19 @@
 	<Sound.h>
 	<QuickTimeMusic.h>
 
-1384532310 d:\dev\of\libs\quicktime\include\imagecompression.h
+1384535910 d:\dev\of\libs\quicktime\include\imagecompression.h
 	<MacTypes.h>
 	<Quickdraw.h>
 	<QDOffscreen.h>
 	<Components.h>
 	<StandardFile.h>
 
-1384532304 d:\dev\of\libs\quicktime\include\standardfile.h
+1384535904 d:\dev\of\libs\quicktime\include\standardfile.h
 	<MacTypes.h>
 	<Dialogs.h>
 	<Files.h>
 
-1384532304 d:\dev\of\libs\quicktime\include\dialogs.h
+1384535904 d:\dev\of\libs\quicktime\include\dialogs.h
 	<MacTypes.h>
 	<MixedMode.h>
 	<Events.h>
@@ -1337,12 +1337,12 @@
 	<Controls.h>
 	<MacErrors.h>
 
-1384532310 d:\dev\of\libs\quicktime\include\textedit.h
+1384535910 d:\dev\of\libs\quicktime\include\textedit.h
 	<MacTypes.h>
 	<Quickdraw.h>
 	<MixedMode.h>
 
-1384532307 d:\dev\of\libs\quicktime\include\controls.h
+1384535907 d:\dev\of\libs\quicktime\include\controls.h
 	<MacTypes.h>
 	<Quickdraw.h>
 	<Menus.h>
@@ -1352,7 +1352,7 @@
 	<Collections.h>
 	<MacErrors.h>
 
-1384532308 d:\dev\of\libs\quicktime\include\movies.h
+1384535908 d:\dev\of\libs\quicktime\include\movies.h
 	<Quickdraw.h>
 	<Aliases.h>
 	<Events.h>
@@ -1360,17 +1360,17 @@
 	<Components.h>
 	<ImageCompression.h>
 
-1384532310 d:\dev\of\libs\quicktime\include\video.h
+1384535910 d:\dev\of\libs\quicktime\include\video.h
 	<Quickdraw.h>
 
-1384532304 d:\dev\of\libs\quicktime\include\sound.h
+1384535904 d:\dev\of\libs\quicktime\include\sound.h
 	<MacTypes.h>
 	<Dialogs.h>
 	<Components.h>
 	<MixedMode.h>
 	<Movies.h>
 
-1384532303 d:\dev\of\libs\quicktime\include\quicktimemusic.h
+1384535903 d:\dev\of\libs\quicktime\include\quicktimemusic.h
 	<Components.h>
 	<ImageCompression.h>
 	<Movies.h>
@@ -1380,49 +1380,49 @@
 	<Sound.h>
 	<Endian.h>
 
-1384532307 d:\dev\of\libs\quicktime\include\textutils.h
+1384535907 d:\dev\of\libs\quicktime\include\textutils.h
 	<MacTypes.h>
 	<NumberFormatting.h>
 	<StringCompare.h>
 	<DateTimeUtils.h>
 
-1384532303 d:\dev\of\libs\quicktime\include\numberformatting.h
+1384535903 d:\dev\of\libs\quicktime\include\numberformatting.h
 	<ConditionalMacros.h>
 	<MacTypes.h>
 	<IntlResources.h>
 
-1384532311 d:\dev\of\libs\quicktime\include\intlresources.h
+1384535911 d:\dev\of\libs\quicktime\include\intlresources.h
 	<MacTypes.h>
 
-1384532305 d:\dev\of\libs\quicktime\include\stringcompare.h
+1384535905 d:\dev\of\libs\quicktime\include\stringcompare.h
 	<MacTypes.h>
 	<TextCommon.h>
 	<Script.h>
 
-1384532304 d:\dev\of\libs\quicktime\include\script.h
+1384535904 d:\dev\of\libs\quicktime\include\script.h
 	<MacTypes.h>
 	<Quickdraw.h>
 	<IntlResources.h>
 	<Events.h>
 
-1384532305 d:\dev\of\libs\quicktime\include\mediahandlers.h
+1384535905 d:\dev\of\libs\quicktime\include\mediahandlers.h
 	<ConditionalMacros.h>
 	<MacTypes.h>
 	<Components.h>
 	<Movies.h>
 	<Sound.h>
 
-1384532293 d:\dev\of\libs\openframeworks\video\ofqtkitgrabber.h
+1384535893 d:\dev\of\libs\openframeworks\video\ofqtkitgrabber.h
 	"ofMain.h"
 
-1384532294 d:\dev\of\libs\openframeworks\video\ofdirectshowgrabber.h
+1384535894 d:\dev\of\libs\openframeworks\video\ofdirectshowgrabber.h
 	"ofConstants.h"
 	"ofTexture.h"
 	"ofBaseTypes.h"
 	"ofPixels.h"
 	"videoInput.h"
 
-1384532295 d:\dev\of\libs\videoinput\include\videoinput.h
+1384535895 d:\dev\of\libs\videoinput\include\videoinput.h
 	<stdlib.h>
 	<stdio.h>
 	<math.h>
@@ -1432,11 +1432,11 @@
 	<vector>
 	<windows.h>
 
-1384532293 d:\dev\of\libs\openframeworks\video\ofgstvideograbber.h
+1384535893 d:\dev\of\libs\openframeworks\video\ofgstvideograbber.h
 	"ofGstUtils.h"
 	"ofTypes.h"
 
-1384532294 d:\dev\of\libs\openframeworks\video\ofgstutils.h
+1384535894 d:\dev\of\libs\openframeworks\video\ofgstutils.h
 	"ofConstants.h"
 	"ofConstants.h"
 	"ofBaseTypes.h"
@@ -1447,7 +1447,7 @@
 	<gst/gst.h>
 	<gst/gstpad.h>
 
-1384532293 d:\dev\of\libs\openframeworks\video\ofvideoplayer.h
+1384535893 d:\dev\of\libs\openframeworks\video\ofvideoplayer.h
 	"ofConstants.h"
 	"ofTexture.h"
 	"ofBaseTypes.h"
@@ -1458,28 +1458,28 @@
 	"ofxiOSVideoPlayer.h"
 	"ofxAndroidVideoPlayer.h"
 
-1384532293 d:\dev\of\libs\openframeworks\video\ofgstvideoplayer.h
+1384535893 d:\dev\of\libs\openframeworks\video\ofgstvideoplayer.h
 	"ofGstUtils.h"
 
-1384532294 d:\dev\of\libs\openframeworks\video\ofquicktimeplayer.h
+1384535894 d:\dev\of\libs\openframeworks\video\ofquicktimeplayer.h
 	"ofConstants.h"
 	"ofBaseTypes.h"
 	"ofPixels.h"
 	"ofQtUtils.h"
 
-1384532294 d:\dev\of\libs\openframeworks\video\ofqtkitplayer.h
+1384535894 d:\dev\of\libs\openframeworks\video\ofqtkitplayer.h
 	"ofMain.h"
 
-1384532295 d:\dev\of\libs\openframeworks\3d\ofcamera.h
+1384535895 d:\dev\of\libs\openframeworks\3d\ofcamera.h
 	"ofRectangle.h"
 	"ofAppRunner.h"
 	"ofNode.h"
 
-1384532295 d:\dev\of\libs\openframeworks\3d\ofeasycam.h
+1384535895 d:\dev\of\libs\openframeworks\3d\ofeasycam.h
 	"ofCamera.h"
 	"ofEvents.h"
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\cld\src\fdog.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\cld\src\fdog.cpp
 	"ofMain.h"
 	<cmath>
 	"ETF.h"
@@ -1487,20 +1487,20 @@
 	"myvec.h"
 	"imatrix.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\cld\include\cld\fdog.h
+1384549519 d:\dev\of\addons\ofxcv\libs\cld\include\cld\fdog.h
 
-1384545919 d:\dev\of\addons\ofxcv\libs\cld\include\cld\myvec.h
+1384549519 d:\dev\of\addons\ofxcv\libs\cld\include\cld\myvec.h
 	<cmath>
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\calibration.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\calibration.cpp
 	"ofxCv/Calibration.h"
 	"ofxCv/Helpers.h"
 	"ofFileUtils.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\calibration.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\calibration.h
 	"ofxCv.h"
 
-1384545919 d:\dev\of\addons\ofxcv\src\ofxcv.h
+1384549519 d:\dev\of\addons\ofxcv\src\ofxcv.h
 	"opencv2/opencv.hpp"
 	"ofxCv/Utilities.h"
 	"ofxCv/Wrappers.h"
@@ -1513,7 +1513,7 @@
 	"ofxCv/Flow.h"
 	"ofxCv/ObjectFinder.h"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\opencv.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\opencv.hpp
 	"opencv2/core/core_c.h"
 	"opencv2/core/core.hpp"
 	"opencv2/flann/miniflann.hpp"
@@ -1528,10 +1528,10 @@
 	"opencv2/highgui/highgui.hpp"
 	"opencv2/contrib/contrib.hpp"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\core_c.h
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\core_c.h
 	"opencv2/core/types_c.h"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\types_c.h
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\types_c.h
 	<assert.h>
 	<stdlib.h>
 	<string.h>
@@ -1544,7 +1544,7 @@
 	<ipl.h>
 	<ipl/ipl.h>
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\core.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\core.hpp
 	"opencv2/core/types_c.h"
 	"opencv2/core/version.hpp"
 	<limits.h>
@@ -1559,9 +1559,9 @@
 	"opencv2/core/operations.hpp"
 	"opencv2/core/mat.hpp"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\version.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\version.hpp
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\operations.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\operations.hpp
 	<string.h>
 	<limits.h>
 	<ext/atomicity.h>
@@ -1569,85 +1569,85 @@
 	<intrin.h>
 	<limits>
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\mat.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\mat.hpp
 	<limits.h>
 	<string.h>
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\miniflann.hpp
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\miniflann.hpp
 	"opencv2/core/core.hpp"
 	"opencv2/flann/defines.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\defines.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\defines.h
 	"config.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\config.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\config.h
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\imgproc\imgproc_c.h
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\imgproc\imgproc_c.h
 	"opencv2/core/core_c.h"
 	"opencv2/imgproc/types_c.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\imgproc\types_c.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\imgproc\types_c.h
 	"opencv2/core/core_c.h"
 	"opencv2/imgproc/types_c.h"
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\imgproc\imgproc.hpp
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\imgproc\imgproc.hpp
 	"opencv2/core/core.hpp"
 	"opencv2/imgproc/types_c.h"
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\video\video.hpp
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\video\video.hpp
 	"opencv2/video/tracking.hpp"
 	"opencv2/video/background_segm.hpp"
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\video\tracking.hpp
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\video\tracking.hpp
 	"opencv2/core/core.hpp"
 	"opencv2/imgproc/imgproc_c.h"
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\video\background_segm.hpp
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\video\background_segm.hpp
 	"opencv2/core/core.hpp"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\features2d\features2d.hpp
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\features2d\features2d.hpp
 	"opencv2/core/core.hpp"
 	"opencv2/flann/miniflann.hpp"
 	<limits>
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\objdetect\objdetect.hpp
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\objdetect\objdetect.hpp
 	"opencv2/core/core.hpp"
 	"opencv2/features2d/features2d.hpp"
 	<deque>
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\calib3d\calib3d.hpp
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\calib3d\calib3d.hpp
 	"opencv2/core/core.hpp"
 	"opencv2/features2d/features2d.hpp"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\ml\ml.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\ml\ml.hpp
 	"opencv2/core/core.hpp"
 	<limits.h>
 	<map>
 	<string>
 	<iostream>
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\highgui\highgui_c.h
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\highgui\highgui_c.h
 	"opencv2/core/core_c.h"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\highgui\highgui.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\highgui\highgui.hpp
 	"opencv2/core/core.hpp"
 	"opencv2/highgui/highgui_c.h"
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\contrib\contrib.hpp
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\contrib\contrib.hpp
 	"opencv2/core/core.hpp"
 	"opencv2/features2d/features2d.hpp"
 	"opencv2/objdetect/objdetect.hpp"
 	"opencv2/contrib/retina.hpp"
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\contrib\retina.hpp
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\contrib\retina.hpp
 	"opencv2/core/core.hpp"
 	<valarray>
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\utilities.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\utilities.h
 	"ofMain.h"
 	"opencv2/opencv.hpp"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\wrappers.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\wrappers.h
 	"ofMain.h"
 	"opencv2/opencv.hpp"
 	"ofxCv/Utilities.h"
@@ -1656,87 +1656,87 @@
 	"fdog.h"
 	"myvec.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\helpers.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\helpers.h
 	"opencv2/opencv.hpp"
 	"ofMain.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\distance.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\distance.h
 	<string>
 	<vector>
 	<cstdlib>
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\tracker.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\tracker.h
 	"opencv2/opencv.hpp"
 	<utility>
 	<map>
 	"ofMath.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\contourfinder.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\contourfinder.h
 	"ofxCv/Utilities.h"
 	"ofxCv/Tracker.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\runningbackground.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\runningbackground.h
 	"ofxCv/Utilities.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\flow.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\flow.h
 	"ofxCv.h"
 
-1384545919 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\objectfinder.h
+1384549519 d:\dev\of\addons\ofxcv\libs\ofxcv\include\ofxcv\objectfinder.h
 	"ofxCv/Utilities.h"
 	"ofxCv/Tracker.h"
 	"ofxCv.h"
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\contourfinder.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\contourfinder.cpp
 	"ofxCv/ContourFinder.h"
 	"ofxCv/Wrappers.h"
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\distance.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\distance.cpp
 	"ofxCv/Distance.h"
 	<string.h>
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\flow.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\flow.cpp
 	"ofxCv/Flow.h"
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\helpers.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\helpers.cpp
 	"ofxCv/Helpers.h"
 	"ofxCv/Utilities.h"
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\objectfinder.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\objectfinder.cpp
 	"ObjectFinder.h"
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\runningbackground.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\runningbackground.cpp
 	"ofxCv/RunningBackground.h"
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\tracker.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\tracker.cpp
 	"ofxCv/Tracker.h"
 	"ofxCv/Utilities.h"
 	"ofRectangle.h"
 	"ofVec2f.h"
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\utilities.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\utilities.cpp
 	"ofxCv/Utilities.h"
 	"ofMath.h"
 	<stdint.h>
 
-1384545919 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\wrappers.cpp
+1384549519 source:d:\dev\of\addons\ofxcv\libs\ofxcv\src\wrappers.cpp
 	"ofxCv/Wrappers.h"
 
-1384540561 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\clm.cc
+1396302903 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\clm.cc
 	<FaceTracker/CLM.h>
 
-1384540561 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\clm.h
+1396302902 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\clm.h
 	<FaceTracker/PDM.h>
 	<FaceTracker/Patch.h>
 	<vector>
 
-1384540561 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\pdm.h
+1396302903 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\pdm.h
 	<FaceTracker/IO.h>
 
-1384540561 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\io.h
+1396302902 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\io.h
 	<opencv/cv.h>
 	<fstream>
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv\cv.h
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv\cv.h
 	"opencv2/core/core_c.h"
 	"opencv2/core/core.hpp"
 	"opencv2/imgproc/imgproc_c.h"
@@ -1749,13 +1749,13 @@
 	"opencv2/legacy/compat.hpp"
 	"opencv2/core/internal.hpp"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\flann.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\flann.hpp
 	"opencv2/core/types_c.h"
 	"opencv2/core/core.hpp"
 	"opencv2/flann/flann_base.hpp"
 	"opencv2/flann/miniflann.hpp"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\flann_base.hpp
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\flann_base.hpp
 	<vector>
 	<string>
 	<cassert>
@@ -1766,40 +1766,40 @@
 	"saving.h"
 	"all_indices.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\general.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\general.h
 	"defines.h"
 	<stdexcept>
 	<cassert>
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\matrix.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\matrix.h
 	<stdio.h>
 	"general.h"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\params.h
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\params.h
 	"any.h"
 	"general.h"
 	<iostream>
 	<map>
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\any.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\any.h
 	<stdexcept>
 	<ostream>
 	<typeinfo>
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\saving.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\saving.h
 	<cstring>
 	<vector>
 	"general.h"
 	"nn_index.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\nn_index.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\nn_index.h
 	<string>
 	"general.h"
 	"matrix.h"
 	"result_set.h"
 	"params.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\result_set.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\result_set.h
 	<algorithm>
 	<cstring>
 	<iostream>
@@ -1807,7 +1807,7 @@
 	<set>
 	<vector>
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\all_indices.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\all_indices.h
 	"general.h"
 	"nn_index.h"
 	"kdtree_index.h"
@@ -1819,7 +1819,7 @@
 	"lsh_index.h"
 	"autotuned_index.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\kdtree_index.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\kdtree_index.h
 	<algorithm>
 	<map>
 	<cassert>
@@ -1834,33 +1834,33 @@
 	"random.h"
 	"saving.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\dynamic_bitset.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\dynamic_bitset.h
 	<boost/dynamic_bitset.hpp>
 	<limits.h>
 	"dist.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\dist.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\dist.h
 	<cmath>
 	<cstdlib>
 	<string.h>
 	<stdint.h>
 	"defines.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\heap.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\heap.h
 	<algorithm>
 	<vector>
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\allocator.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\allocator.h
 	<stdlib.h>
 	<stdio.h>
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\random.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\random.h
 	<algorithm>
 	<cstdlib>
 	<vector>
 	"general.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\kdtree_single_index.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\kdtree_single_index.h
 	<algorithm>
 	<map>
 	<cassert>
@@ -1874,7 +1874,7 @@
 	"random.h"
 	"saving.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\kmeans_index.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\kmeans_index.h
 	<algorithm>
 	<string>
 	<map>
@@ -1892,22 +1892,22 @@
 	"saving.h"
 	"logger.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\logger.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\logger.h
 	<stdio.h>
 	<stdarg.h>
 	"defines.h"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\composite_index.h
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\composite_index.h
 	"general.h"
 	"nn_index.h"
 	"kdtree_index.h"
 	"kmeans_index.h"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\linear_index.h
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\linear_index.h
 	"general.h"
 	"nn_index.h"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\hierarchical_clustering_index.h
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\hierarchical_clustering_index.h
 	<algorithm>
 	<string>
 	<map>
@@ -1924,7 +1924,7 @@
 	"random.h"
 	"saving.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\lsh_index.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\lsh_index.h
 	<algorithm>
 	<cassert>
 	<cstring>
@@ -1940,7 +1940,7 @@
 	"random.h"
 	"saving.h"
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\lsh_table.h
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\lsh_table.h
 	<algorithm>
 	<iostream>
 	<iomanip>
@@ -1952,7 +1952,7 @@
 	"dynamic_bitset.h"
 	"matrix.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\autotuned_index.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\autotuned_index.h
 	"general.h"
 	"nn_index.h"
 	"ground_truth.h"
@@ -1965,11 +1965,11 @@
 	"linear_index.h"
 	"logger.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\ground_truth.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\ground_truth.h
 	"dist.h"
 	"matrix.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\index_testing.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\index_testing.h
 	<cstring>
 	<cassert>
 	<cmath>
@@ -1979,20 +1979,20 @@
 	"logger.h"
 	"timer.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\timer.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\timer.h
 	<time.h>
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\sampling.h
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\flann\sampling.h
 	"matrix.h"
 	"random.h"
 
-1384532390 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\legacy\compat.hpp
+1384535990 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\legacy\compat.hpp
 	"opencv2/core/core_c.h"
 	"opencv2/imgproc/types_c.h"
 	<math.h>
 	<string.h>
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\internal.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\internal.hpp
 	<vector>
 	<windows.h>
 	<pthread.h>
@@ -2011,49 +2011,49 @@
 	<alloca.h>
 	<stdlib.h>
 
-1384532389 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\eigen.hpp
+1384535989 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv2\core\eigen.hpp
 	"cxcore.h"
 
-1384532391 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv\cxcore.h
+1384535991 d:\dev\of\addons\ofxopencv\libs\opencv\include\opencv\cxcore.h
 	"opencv2/core/core_c.h"
 	"opencv2/core/core.hpp"
 
-1384540561 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\patch.h
+1396302903 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\patch.h
 	<FaceTracker/IO.h>
 
-1384540561 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\fcheck.cc
+1396302903 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\fcheck.cc
 	<FaceTracker/FCheck.h>
 
-1384540561 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\fcheck.h
+1396302902 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\fcheck.h
 	<FaceTracker/PAW.h>
 	<vector>
 
-1384540561 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\paw.h
+1396302903 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\paw.h
 	<FaceTracker/IO.h>
 
-1384540561 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\fdet.cc
+1396302903 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\fdet.cc
 	<FaceTracker/FDet.h>
 
-1384540561 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\fdet.h
+1396302902 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\fdet.h
 	<FaceTracker/IO.h>
 
-1384540561 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\io.cc
+1396302903 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\io.cc
 	<FaceTracker/IO.h>
 	<stdio.h>
 
-1384540561 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\patch.cc
+1396302903 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\patch.cc
 	<FaceTracker/Patch.h>
 
-1384540561 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\paw.cc
+1396302903 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\paw.cc
 	<FaceTracker/PAW.h>
 
-1384540561 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\pdm.cc
+1396302903 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\pdm.cc
 	<FaceTracker/PDM.h>
 
-1384540561 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\tracker.cc
+1396302904 source:d:\dev\of\addons\ofxfacetracker\libs\facetracker\src\lib\tracker.cc
 	<FaceTracker/Tracker.h>
 
-1384540561 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\tracker.h
+1396302903 d:\dev\of\addons\ofxfacetracker\libs\facetracker\include\facetracker\tracker.h
 	<FaceTracker/CLM.h>
 	<FaceTracker/FDet.h>
 	<FaceTracker/FCheck.h>
@@ -2072,87 +2072,87 @@
 	"Emotion.h"
 	"ofxFaceTracker.h"
 
-1384540562 d:\dev\of\addons\ofxfacetracker\src\ofxfacetracker.h
+1396302904 d:\dev\of\addons\ofxfacetracker\src\ofxfacetracker.h
 	"ofxCv.h"
 	"FaceTracker/Tracker.h"
 	"ExpressionClassifier.h"
 
-1384540561 d:\dev\of\addons\ofxfacetracker\src\expressionclassifier.h
+1396302904 d:\dev\of\addons\ofxfacetracker\src\expressionclassifier.h
 	"ofxCv.h"
 	"Expression.h"
 	"ofxFaceTracker.h"
 
-1384540561 d:\dev\of\addons\ofxfacetracker\src\expression.h
+1396302904 d:\dev\of\addons\ofxfacetracker\src\expression.h
 	"ofxCv.h"
 
-1384540561 source:d:\dev\of\addons\ofxfacetracker\src\expression.cpp
+1396302904 source:d:\dev\of\addons\ofxfacetracker\src\expression.cpp
 	"Expression.h"
 
-1393357035 source:d:\dev\of\addons\ofxfacetracker\src\expressionclassifier.cpp
+1396302904 source:d:\dev\of\addons\ofxfacetracker\src\expressionclassifier.cpp
 	"ExpressionClassifier.h"
 
-1384540562 source:d:\dev\of\addons\ofxfacetracker\src\ofxfacetracker.cpp
+1396302904 source:d:\dev\of\addons\ofxfacetracker\src\ofxfacetracker.cpp
 	"ofxFaceTracker.h"
 
-1384532392 source:d:\dev\of\addons\ofxopencv\src\ofxcvcolorimage.cpp
+1384535992 source:d:\dev\of\addons\ofxopencv\src\ofxcvcolorimage.cpp
 	"ofxCvGrayscaleImage.h"
 	"ofxCvColorImage.h"
 	"ofxCvFloatImage.h"
 	"ofxCvShortImage.h"
 
-1384532392 d:\dev\of\addons\ofxopencv\src\ofxcvgrayscaleimage.h
+1384535992 d:\dev\of\addons\ofxopencv\src\ofxcvgrayscaleimage.h
 	"ofxCvImage.h"
 	"ofxCvBlob.h"
 
-1384532393 d:\dev\of\addons\ofxopencv\src\ofxcvimage.h
+1384535993 d:\dev\of\addons\ofxopencv\src\ofxcvimage.h
 	"ofxCvConstants.h"
 
-1384532392 d:\dev\of\addons\ofxopencv\src\ofxcvconstants.h
+1384535992 d:\dev\of\addons\ofxopencv\src\ofxcvconstants.h
 	"cv.h"
 	<vector>
 	"ofMain.h"
 
-1384532392 d:\dev\of\addons\ofxopencv\src\ofxcvblob.h
+1384535992 d:\dev\of\addons\ofxopencv\src\ofxcvblob.h
 	"ofxCvConstants.h"
 
-1384532392 d:\dev\of\addons\ofxopencv\src\ofxcvcolorimage.h
+1384535992 d:\dev\of\addons\ofxopencv\src\ofxcvcolorimage.h
 	"ofxCvImage.h"
 
-1384532392 d:\dev\of\addons\ofxopencv\src\ofxcvfloatimage.h
+1384535992 d:\dev\of\addons\ofxopencv\src\ofxcvfloatimage.h
 	"ofxCvImage.h"
 
-1384532393 d:\dev\of\addons\ofxopencv\src\ofxcvshortimage.h
+1384535993 d:\dev\of\addons\ofxopencv\src\ofxcvshortimage.h
 	"ofxCvImage.h"
 
-1384532392 source:d:\dev\of\addons\ofxopencv\src\ofxcvcontourfinder.cpp
+1384535992 source:d:\dev\of\addons\ofxopencv\src\ofxcvcontourfinder.cpp
 	"ofxCvContourFinder.h"
 
-1384532392 d:\dev\of\addons\ofxopencv\src\ofxcvcontourfinder.h
+1384535992 d:\dev\of\addons\ofxopencv\src\ofxcvcontourfinder.h
 	"ofxCvConstants.h"
 	"ofxCvBlob.h"
 	"ofxCvGrayscaleImage.h"
 	<algorithm>
 
-1384532392 source:d:\dev\of\addons\ofxopencv\src\ofxcvfloatimage.cpp
+1384535992 source:d:\dev\of\addons\ofxopencv\src\ofxcvfloatimage.cpp
 	"ofxCvGrayscaleImage.h"
 	"ofxCvColorImage.h"
 	"ofxCvFloatImage.h"
 	"ofxCvShortImage.h"
 
-1384532392 source:d:\dev\of\addons\ofxopencv\src\ofxcvgrayscaleimage.cpp
+1384535992 source:d:\dev\of\addons\ofxopencv\src\ofxcvgrayscaleimage.cpp
 	"ofxCvGrayscaleImage.h"
 	"ofxCvColorImage.h"
 	"ofxCvFloatImage.h"
 	"ofxCvShortImage.h"
 
-1384532393 source:d:\dev\of\addons\ofxopencv\src\ofxcvhaarfinder.cpp
+1384535993 source:d:\dev\of\addons\ofxopencv\src\ofxcvhaarfinder.cpp
 	"ofxCvHaarFinder.h"
 
-1384532392 d:\dev\of\addons\ofxopencv\src\ofxcvhaarfinder.h
+1384535992 d:\dev\of\addons\ofxopencv\src\ofxcvhaarfinder.h
 	"ofMain.h"
 	"ofxOpenCv.h"
 
-1384532392 d:\dev\of\addons\ofxopencv\src\ofxopencv.h
+1384535992 d:\dev\of\addons\ofxopencv\src\ofxopencv.h
 	"ofxCvConstants.h"
 	"ofxCvImage.h"
 	"ofxCvGrayscaleImage.h"
@@ -2162,14 +2162,14 @@
 	"ofxCvContourFinder.h"
 	"ofxCvHaarFinder.h"
 
-1384532393 source:d:\dev\of\addons\ofxopencv\src\ofxcvimage.cpp
+1384535993 source:d:\dev\of\addons\ofxopencv\src\ofxcvimage.cpp
 	"ofxCvImage.h"
 	"ofxCvGrayscaleImage.h"
 	"ofxCvColorImage.h"
 	"ofxCvFloatImage.h"
 	"ofxCvBlob.h"
 
-1384532392 source:d:\dev\of\addons\ofxopencv\src\ofxcvshortimage.cpp
+1384535992 source:d:\dev\of\addons\ofxopencv\src\ofxcvshortimage.cpp
 	"ofxCvGrayscaleImage.h"
 	"ofxCvColorImage.h"
 	"ofxCvFloatImage.h"
