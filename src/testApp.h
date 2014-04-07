@@ -48,6 +48,5 @@ class testApp : public ofBaseApp{
 		// Image
 		ofImage image;
         bool useImage = false;
-        bool isFrameNew = false;
 
 };

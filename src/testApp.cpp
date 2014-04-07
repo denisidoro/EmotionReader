@@ -15,10 +15,7 @@ void testApp::setup() {
 	tracker.setRescale(.5);
     classifier.load("emotions");
 
-    if (useImage)
-        image.loadImage("D:/dev/resource/temp/caprio.jpg");
-    else
-        cam.initGrabber(640, 470);
+    (useImage) ? image.loadImage("D:/dev/resource/temp/caprio.jpg") : cam.initGrabber(640, 470);
 
     // set some sketch parameters
     meshColor = ofColor(32, 225, 205);
@@ -81,20 +78,15 @@ void testApp::setup() {
 //--------------------------------------------------------------
 void testApp::update() {
 
-	if (useImage)
-        image.update();
-    else
-        cam.update();
+	(useImage) ? image.update() : cam.update();
 
     if ((!useImage && tracker.update(toCv(cam))) || (useImage && tracker.update(toCv(image)))) {
-
         ofVec2f position = tracker.getPosition();
         positionPoint = ofPoint(position.x, position.y);
         scale = tracker.getScale();
         orientation = tracker.getOrientation();
         rotationMatrix = tracker.getRotationMatrix();
         classifier.classify(tracker);
-
     }
 
 }
@@ -106,10 +98,7 @@ void testApp::draw(){
 	ofSetColor(255);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, 20);
 
-    if (useImage)
-        image.draw(0, 0);
-    else
-        cam.draw(0, 0);
+    (useImage) ? image.draw(0, 0) : cam.draw(0, 0);
 
 	ofSetColor(meshColor);
 	if (meshView[0]) {
