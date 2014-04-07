@@ -45,4 +45,9 @@ class testApp : public ofBaseApp{
 		float scale = 0;
 		float stdDeviation = 0;
 
+		// Image
+		ofImage image;
+        bool useImage = false;
+        bool isFrameNew = false;
+
 };
