@@ -1,141 +1,90 @@
 #include "testApp.h"
 
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/ml/ml.hpp>
+
 using namespace ofxCv;
 using namespace cv;
 
 //--------------------------------------------------------------
-void testApp::setup() {
+void testApp::setup(){
 
-	ofSetVerticalSync(true);
-	ofEnableSmoothing();
+    // Data for visual representation
+    int width = 512, height = 512;
+    image = Mat::zeros(height, width, CV_8UC3);
 
-	// facetracking initialization
+    // Set up training data
+    float labels[4] = {1.0, -1.0, -1.0, -1.0};
+    Mat labelsMat(4, 1, CV_32FC1, labels);
 
-	tracker.setup();
-	tracker.setRescale(.5);
-    classifier.load("emotions");
+    float trainingData[4][2] = { {501, 10}, {255, 10}, {501, 255}, {10, 501} };
+    Mat trainingDataMat(4, 2, CV_32FC1, trainingData);
 
-    (useImage) ? image.loadImage("D:/dev/resource/temp/caprio.jpg") : cam.initGrabber(640, 470);
+    // Set up SVM's parameters
+    CvSVMParams params;
+    params.svm_type    = CvSVM::C_SVC;
+    params.kernel_type = CvSVM::LINEAR;
+    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
 
-    // set some sketch parameters
-    meshColor = ofColor(32, 225, 205);
-    for (int i = 0; i < 7; i++)
-    	probs[i] = 0;
+    // Train the SVM
+    CvSVM SVM;
+    SVM.train(trainingDataMat, labelsMat, Mat(), Mat(), params);
 
-    int camWidth = 640, panelWidth = 212;
+    Vec3b green(0,255,0), blue (255,0,0);
+    // Show the decision regions given by the SVM
+    for (int i = 0; i < image.rows; ++i)
+        for (int j = 0; j < image.cols; ++j)
+        {
+            Mat sampleMat = (Mat_<float>(1,2) << j,i);
+            float response = SVM.predict(sampleMat);
 
-    // initialize GUIs
-    gui1 = new ofxUISuperCanvas("MESH");
-    gui1->addSpacer();
-    gui1->addLabel("Visibility", OFX_UI_FONT_MEDIUM);
-    gui1->addSpacer();
-	gui1->addToggle("Show", meshView[0]);
-	gui1->addToggle("Complex", meshView[1]);
-	//gui1->addToggle("Axis", meshView[2]);
-    gui1->addSpacer();
-    gui1->addLabel("Color", OFX_UI_FONT_MEDIUM);
-    gui1->addSpacer();
-    gui1->addSlider("Red", 0, 255, meshColor.r);
-    gui1->addSlider("Green", 0, 255, meshColor.g);
-    gui1->addSlider("Blue", 0, 255, meshColor.b);
-    gui1->setPosition(0, 0);
-    gui1->autoSizeToFitWidgets();
-    gui1->disable();
-    ofAddListener(gui1->newGUIEvent,this,&testApp::guiEvent);
+            if (response == 1)
+                image.at<Vec3b>(i,j)  = green;
+            else if (response == -1)
+                 image.at<Vec3b>(i,j)  = blue;
+        }
 
-    gui2 = new ofxUISuperCanvas("EMOTIONS");
-    gui2->addSpacer();
-    for (int i = 0; i < 7; i++)
-    	gui2->addSlider(emotionLabels[i], 0, 1, &probs[i]);
-    gui2->setPosition(camWidth - panelWidth, 0);
-    gui2->autoSizeToFitWidgets();
-    gui2->disable();
+    // Show the training data
+    int thickness = -1;
+    int lineType = 8;
+    circle( image, Point_<int>(501,  10), 5, Scalar(  0,   0,   0), thickness, lineType);
+    circle( image, Point_<int>(255,  10), 5, Scalar(255, 255, 255), thickness, lineType);
+    circle( image, Point_<int>(501, 255), 5, Scalar(255, 255, 255), thickness, lineType);
+    circle( image, Point_<int>( 10, 501), 5, Scalar(255, 255, 255), thickness, lineType);
 
-    gui3 = new ofxUISuperCanvas("MAIN");
-    gui3->addSpacer();
-    gui3->addTextInput("Emotion", "Face not tracked");
-    gui3->addSpacer();
-    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation);
-    gui3->setPosition(camWidth/3, 0);
-    gui3->autoSizeToFitWidgets();
+    // Show support vectors
+    thickness = 2;
+    lineType  = 8;
+    int c     = SVM.get_support_vector_count();
 
-    gui4 = new ofxUISuperCanvas("TRACKING");
-    gui4->addSpacer();
-	gui4->add2DPad("Position", ofPoint(0, 640), ofPoint(0, 470), &positionPoint);
-    gui4->addSpacer();
-    gui4->addCircleSlider("Scale", 0, 10, &scale);
-    gui4->setPosition(camWidth, 0);
-    gui4->autoSizeToFitWidgets();
-    gui4->disable();
+    for (int i = 0; i < c; ++i)
+    {
+        const float* v = SVM.get_support_vector(i);
+        circle( image,  Point_<int>( (int) v[0], (int) v[1]),   6,  Scalar(128, 128, 128), thickness, lineType);
+    }
 
-    gui5 = new ofxUICanvas();
-    gui5->addLabel("Press i to toggle advanced panels");
-    gui5->setPosition(0, 470 - 20);
-    gui5->autoSizeToFitWidgets();
+    //imwrite("result.png", image);        // save the image
+    //imshow("SVM Simple Example", image); // show it to the user
+    //waitKey(0);
 
 }
 
 //--------------------------------------------------------------
-void testApp::update() {
+void testApp::update(){
 
-	(useImage) ? image.update() : cam.update();
-
-    if ((!useImage && tracker.update(toCv(cam))) || (useImage && tracker.update(toCv(image)))) {
-        ofVec2f position = tracker.getPosition();
-        positionPoint = ofPoint(position.x, position.y);
-        scale = tracker.getScale();
-        orientation = tracker.getOrientation();
-        rotationMatrix = tracker.getRotationMatrix();
-        classifier.classify(tracker);
-    }
 
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
 
-	ofBackground(ofColor(170, 200, 200));
-	ofSetColor(255);
-	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, 20);
-
-    (useImage) ? image.draw(0, 0) : cam.draw(0, 0);
-
-	ofSetColor(meshColor);
-	if (meshView[0]) {
-		if (meshView[1])
-			tracker.getImageMesh().drawWireframe();
-		else
-			tracker.draw();
-	}
-
-	int n = classifier.size();
-    string primaryLabel = emotionLabels[classifier.getPrimaryExpression()];
-    ((ofxUITextInput *) gui3->getWidget("Emotion"))->setTextString(primaryLabel);
-
-    for (int i = 0; i < n; i++) {
-    	probs[i] = classifier.getProbability(i);
-    }
-
-    stdDeviation = 0;
-    for (int i = 0; i < n; i++) {
-    	stdDeviation += pow(1/7 - probs[i], 2);
-    }
-    stdDeviation /= 7;
+    ofxCv::drawMat(image, 0, 0, 640, 480);
 
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-
-    switch (key) {
-        case 'i':
-            gui1->toggleVisible();
-            gui2->toggleVisible();
-            gui4->toggleVisible();
-            break;
-        default:
-            break;
-    }
 
 }
 
@@ -176,42 +125,5 @@ void testApp::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void testApp::dragEvent(ofDragInfo dragInfo){
-
-}
-
-//--------------------------------------------------------------
-void testApp::guiEvent(ofxUIEventArgs &e) {
-
-	string n = e.getName();
-	int kind = e.getKind();
-	cout << "got event from: " << n << ", " << kind << endl;
-
-	if (kind == 4) { // Mesh color
-
-		ofxUISlider *rslider = (ofxUISlider *) e.widget;
-		int value = rslider->getScaledValue();
-
-		if (n == "Red")
-			meshColor.r = value;
-		else if (n == "Green")
-			meshColor.g = value;
-		else if (n == "Blue")
-			meshColor.b = value;
-
-	}
-
-	else if (kind == 2) { // Mesh visibility
-
-		ofxUIToggle *toggle = (ofxUIToggle *) e.getToggle();
-		bool value = toggle->getValue();
-
-		if (n == "Show")
-			meshView[0] = value;
-		else if (n == "Complex")
-			meshView[1] = value;
-		else if (n == "Axis")
-			meshView[2] = value;
-
-	}
 
 }
