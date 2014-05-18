@@ -2615,15 +2615,18 @@
 
 1397083338 source:d:\dev\of\apps\tracking\emotionreader\icon.rc
 
-1396880534 source:d:\dev\of\apps\tracking\emotionreader\src\main.cpp
+1399974723 source:d:\dev\of\apps\tracking\emotionreader\src\main.cpp
 	"ofMain.h"
 	"testApp.h"
 
-1396903434 d:\dev\of\apps\tracking\emotionreader\src\testapp.h
+1399974681 d:\dev\of\apps\tracking\emotionreader\src\testapp.h
 	"ofMain.h"
-	"ofxUI.h"
-	"ofxFaceTracker.h"
+	"ofxOpenCv.h"
+	"ofxCv.h"
 
-1396901682 source:d:\dev\of\apps\tracking\emotionreader\src\testapp.cpp
+1399974694 source:d:\dev\of\apps\tracking\emotionreader\src\testapp.cpp
 	"testApp.h"
+	<opencv2/core/core.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<opencv2/ml/ml.hpp>
 
