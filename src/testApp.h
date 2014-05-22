@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxOpenCv.h"
+#include "ofxFaceTracker.h"
 #include "ofxCv.h"
 
 class testApp : public ofBaseApp{
@@ -23,5 +24,7 @@ class testApp : public ofBaseApp{
 
 		ofImage imgMat;
 		cv::Mat image;
+
+		ExpressionClassifier classifier;
 
 };
