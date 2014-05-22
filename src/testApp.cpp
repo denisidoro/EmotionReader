@@ -10,12 +10,51 @@ void testApp::setup() {
 	ofEnableSmoothing();
 
 	// facetracking initialization
-
 	tracker.setup();
 	tracker.setRescale(.5);
     classifier.load("emotions");
 
     (useImage) ? image.loadImage("D:/dev/resource/temp/caprio.jpg") : cam.initGrabber(640, 470);
+
+    // Start preparing training input
+    int TOTAL_SAMPLES = 0;
+    int index = 0;
+    int expressionCount = classifier.size();
+
+    for (int i = 0; i < expressionCount; i++)
+        TOTAL_SAMPLES += classifier.getExpression(i).size();
+
+    float labels[TOTAL_SAMPLES];
+    float trainingData[TOTAL_SAMPLES][198];
+
+    for (int i = 0; i < expressionCount; i++) {
+        Expression expression = classifier.getExpression(i);
+        int sampleCount = expression.size();
+        for (int j = 0; j < sampleCount; j++) {
+            labels[index] = i;
+            Mat& sampleMat = expression.getExample(j);
+            vector<float> sampleVector;
+            sampleMat.convertTo(sampleVector, CV_32FC1);
+            for (int k = 0; k < 198; k++)
+                trainingData[index][k] = sampleVector[k];
+            index++;
+        }
+    }
+
+    Mat labelsMat(TOTAL_SAMPLES, 1, CV_32FC1, labels);
+    Mat trainingDataMat(TOTAL_SAMPLES, 198, CV_32FC1, trainingData);
+
+    //cout << trainingDataMat << endl;
+
+    // Set up SVM's parameters
+    CvSVMParams params;
+    params.C           = 0.1;
+    params.svm_type    = CvSVM::C_SVC;
+    params.kernel_type = CvSVM::LINEAR;
+    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+
+    // Train the SVM
+    SVM.train(trainingDataMat, labelsMat, Mat(), Mat(), params);
 
     // set some sketch parameters
     meshColor = ofColor(32, 225, 205);
@@ -86,7 +125,7 @@ void testApp::update() {
         scale = tracker.getScale();
         orientation = tracker.getOrientation();
         rotationMatrix = tracker.getRotationMatrix();
-        classifier.classify(tracker);
+        //classifier.classify(tracker);
     }
 
 }
@@ -100,6 +139,13 @@ void testApp::draw(){
 
     (useImage) ? image.draw(0, 0) : cam.draw(0, 0);
 
+	Mat pointsMat;
+	tracker.getObjectPointsMat().convertTo(pointsMat, CV_32FC1);
+	norm(pointsMat);
+
+	if (pointsMat.rows == 198)
+        primaryExpression = SVM.predict(pointsMat);
+
 	ofSetColor(meshColor);
 	if (meshView[0]) {
 		if (meshView[1])
@@ -108,19 +154,20 @@ void testApp::draw(){
 			tracker.draw();
 	}
 
-	int n = classifier.size();
-    string primaryLabel = emotionLabels[classifier.getPrimaryExpression()];
+    string primaryLabel = emotionLabels[primaryExpression];
     ((ofxUITextInput *) gui3->getWidget("Emotion"))->setTextString(primaryLabel);
 
-    for (int i = 0; i < n; i++) {
-    	probs[i] = classifier.getProbability(i);
+    int expressionCount = classifier.size();
+
+    for (int i = 0; i < expressionCount; i++) {
+    	probs[i] = (i == primaryExpression) ? 1 : 0;
     }
 
     stdDeviation = 0;
-    for (int i = 0; i < n; i++) {
-    	stdDeviation += pow(1/7 - probs[i], 2);
+    for (int i = 0; i < expressionCount; i++) {
+    	stdDeviation += pow(1/expressionCount - probs[i], 2);
     }
-    stdDeviation /= 7;
+    stdDeviation /= expressionCount;
 
 }
 

@@ -49,4 +49,8 @@ class testApp : public ofBaseApp{
 		ofImage image;
         bool useImage = false;
 
+        // SVM
+    	CvSVM SVM;
+    	int primaryExpression = 0;
+
 };
