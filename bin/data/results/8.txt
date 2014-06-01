@@ -1,0 +1,11 @@
+testDatabase: 1
+trainDatabase: kanadeSelectedPlusKdefAll
+gamma: AUTO
+c: AUTO
+
+90.9	2.3	2.3	2.3	2.3	0.0	
+10.2	86.4	3.4	0.0	0.0	0.0	
+0.0	4.0	88.0	4.0	0.0	4.0	
+1.4	1.4	2.9	94.2	0.0	0.0	
+0.0	0.0	3.6	3.6	92.9	0.0	
+27.7	0.0	3.6	0.0	2.4	66.3	

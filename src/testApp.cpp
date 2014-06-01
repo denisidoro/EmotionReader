@@ -181,7 +181,7 @@ void testApp::update() {
 
 			ofFile file(ofToDataPath("results/" + ss.str() + ".txt"), ofFile::WriteOnly);
 			file.create();
-        	file << "database: " << databasePath << "\ngamma: " << conf_gamma << "\nc: " << conf_c << "\n\n";
+        	file << "testdatabase: " << testingDatabase << "\ntrainDatabase: " << databasePath << "\ngamma: " << conf_gamma << "\nc: " << conf_c << "\n\n";
 
             for (int i = 0; i < EMOTION_COUNT; i++) {
 
