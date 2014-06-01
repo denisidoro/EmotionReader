@@ -25,25 +25,17 @@ class testApp : public ofBaseApp{
 		ofVideoGrabber cam;
 		ofxFaceTracker tracker;
 		ExpressionClassifier classifier;
-		ofVec3f orientation;
-		ofMatrix4x4 rotationMatrix;
 
 		string emotionCodes[8] = {"AN", "DI", "AF", "HA", "SA", "SU", "NE"};
 		const int EMOTION_COUNT = 6;
-		string databasePath = "kanadeSelected";
+		string databasePath = "kdefAll";
 
 		// Image
 		ofImage image;
 
-        // SVM
-    	CvSVM SVM;
-    	float conf_gamma;
-    	float conf_c;
-
     	// Test-related
     	vector<string> paths;
     	vector<string> sPaths;
-    	int occurrences[7][7];
     	int currentEmotion = -1;
     	int currentImage;
     	int frame = 0;
