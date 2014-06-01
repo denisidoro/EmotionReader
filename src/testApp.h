@@ -28,29 +28,25 @@ class testApp : public ofBaseApp{
 		ofVec3f orientation;
 		ofMatrix4x4 rotationMatrix;
 
-		float probs[7];
-		string emotionLabels[8] = {"Angry", "Contempt", "Disgust", "Fear", "Happiness", "Sadness", "Surprise", "Neutral"};
-
-		// UI related
-		ofxUISuperCanvas *gui1;
-		ofxUISuperCanvas *gui2;
-		ofxUISuperCanvas *gui3;
-		ofxUISuperCanvas *gui4;
-		ofxUICanvas *gui5;
-		void guiEvent(ofxUIEventArgs &e);
-
-		ofColor meshColor; // RGB
-		bool meshView[3] = {true, true, false}; // Show, complex, axis
-		ofPoint positionPoint = ofPoint(0,0);
-		float scale = 0;
-		float stdDeviation = 0;
+		string emotionCodes[8] = {"AN", "DI", "AF", "HA", "SA", "SU", "NE"};
+		const int EMOTION_COUNT = 6;
 
 		// Image
 		ofImage image;
-        bool useImage = false;
 
         // SVM
     	CvSVM SVM;
-    	int primaryExpression = 0;
+    	float conf_gamma;
+    	float conf_c;
+
+    	// Test-related
+    	vector<string> paths;
+    	vector<string> sPaths;
+    	int occurrences[7][7];
+    	int currentEmotion = -1;
+    	int currentImage;
+    	int frame = 0;
+
+        vector<string> arguments;
 
 };

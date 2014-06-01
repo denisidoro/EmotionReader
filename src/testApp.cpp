@@ -3,18 +3,69 @@
 using namespace ofxCv;
 using namespace cv;
 
+
+//--------------------------------------------------------------
+// Function that returns a vector with the path of all files
+// inside the KDEF folder
+// Please make sure to delete all files that don't end with s.jpg
+vector<string> getImagePaths() {
+
+    std::vector<string> paths;
+
+    string kdefPath = "/dev/resource/kdef/";
+    ofDirectory dir(kdefPath);
+    dir.listDir();
+
+    for (int i = 0; i < dir.numFiles(); i++) {
+        ofDirectory dirSubject(dir.getPath(i));
+        dirSubject.listDir();
+        for (int j = 0; j < dirSubject.numFiles(); j++)
+            paths.push_back(dirSubject.getPath(j));
+    }
+
+    return paths;
+
+}
+
+
+vector<string> filterByEmotion(vector<string> paths, string code) {
+
+    vector<string> selected;
+
+	for (int i = 0; i < paths.size(); i++) {
+		string imageCode = paths[i].substr(paths[i].length() - 7, 2);
+		if (imageCode.compare(code) == 0)
+            selected.push_back(paths[i]);
+	}
+
+    return selected;
+
+}
+
+
+
 //--------------------------------------------------------------
 void testApp::setup() {
 
 	ofSetVerticalSync(true);
 	ofEnableSmoothing();
 
-	// facetracking initialization
+	// Set variables
+    for (int i = 0; i < EMOTION_COUNT; i++)
+        for (int j = 0; j < EMOTION_COUNT; j++)
+            occurrences[i][j] = 0;
+
+    conf_c = (arguments.size() >= 2 ? ::atof(arguments[1].c_str()) : 0.1);
+    conf_gamma = (arguments.size() >= 3 ? ::atof(arguments[2].c_str()) : 0.1);
+    cout << "C: " << conf_c << ", gamma: " << conf_gamma << endl;
+
+	// Get the path of all images
+	paths = getImagePaths();
+
+	// Facetracking initialization
 	tracker.setup();
 	tracker.setRescale(.5);
-    classifier.load("emotions");
-
-    (useImage) ? image.loadImage("D:/dev/resource/temp/caprio.jpg") : cam.initGrabber(640, 470);
+    classifier.load("kanadeSelected");
 
     // Start preparing training input
     int TOTAL_SAMPLES = 0;
@@ -44,89 +95,82 @@ void testApp::setup() {
     Mat labelsMat(TOTAL_SAMPLES, 1, CV_32FC1, labels);
     Mat trainingDataMat(TOTAL_SAMPLES, 198, CV_32FC1, trainingData);
 
-    //cout << trainingDataMat << endl;
-
     // Set up SVM's parameters
     CvSVMParams params;
-    params.C           = 0.1;
+    params.C           = conf_c;
     params.svm_type    = CvSVM::C_SVC;
-    params.kernel_type = CvSVM::LINEAR;
+    params.gamma       = conf_gamma;
+    params.kernel_type = CvSVM::RBF;
     params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
 
     // Train the SVM
-    SVM.train(trainingDataMat, labelsMat, Mat(), Mat(), params);
-
-    // set some sketch parameters
-    meshColor = ofColor(32, 225, 205);
-    for (int i = 0; i < 7; i++)
-    	probs[i] = 0;
-
-    int camWidth = 640, panelWidth = 212;
-
-    // initialize GUIs
-    gui1 = new ofxUISuperCanvas("MESH");
-    gui1->addSpacer();
-    gui1->addLabel("Visibility", OFX_UI_FONT_MEDIUM);
-    gui1->addSpacer();
-	gui1->addToggle("Show", meshView[0]);
-	gui1->addToggle("Complex", meshView[1]);
-	//gui1->addToggle("Axis", meshView[2]);
-    gui1->addSpacer();
-    gui1->addLabel("Color", OFX_UI_FONT_MEDIUM);
-    gui1->addSpacer();
-    gui1->addSlider("Red", 0, 255, meshColor.r);
-    gui1->addSlider("Green", 0, 255, meshColor.g);
-    gui1->addSlider("Blue", 0, 255, meshColor.b);
-    gui1->setPosition(0, 0);
-    gui1->autoSizeToFitWidgets();
-    gui1->disable();
-    ofAddListener(gui1->newGUIEvent,this,&testApp::guiEvent);
-
-    gui2 = new ofxUISuperCanvas("EMOTIONS");
-    gui2->addSpacer();
-    for (int i = 0; i < 7; i++)
-    	gui2->addSlider(emotionLabels[i], 0, 1, &probs[i]);
-    gui2->setPosition(camWidth - panelWidth, 0);
-    gui2->autoSizeToFitWidgets();
-    gui2->disable();
-
-    gui3 = new ofxUISuperCanvas("MAIN");
-    gui3->addSpacer();
-    gui3->addTextInput("Emotion", "Face not tracked");
-    gui3->addSpacer();
-    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation);
-    gui3->setPosition(camWidth/3, 0);
-    gui3->autoSizeToFitWidgets();
-
-    gui4 = new ofxUISuperCanvas("TRACKING");
-    gui4->addSpacer();
-	gui4->add2DPad("Position", ofPoint(0, 640), ofPoint(0, 470), &positionPoint);
-    gui4->addSpacer();
-    gui4->addCircleSlider("Scale", 0, 10, &scale);
-    gui4->setPosition(camWidth, 0);
-    gui4->autoSizeToFitWidgets();
-    gui4->disable();
-
-    gui5 = new ofxUICanvas();
-    gui5->addLabel("Press i to toggle advanced panels");
-    gui5->setPosition(0, 470 - 20);
-    gui5->autoSizeToFitWidgets();
+    SVM.train_auto(trainingDataMat, labelsMat, Mat(), Mat(), params);
+    /*SVM.get_params();
+    cout << "C: " << params.C << ", gamma: " << params.gamma << "\n\n";*/
 
 }
 
 //--------------------------------------------------------------
 void testApp::update() {
+	if (sPaths.size() == 0 || currentImage >= sPaths.size()) {
+		sPaths = filterByEmotion(paths, emotionCodes[++currentEmotion]);
+		currentImage = 0;
+		if (currentEmotion <= EMOTION_COUNT - 1)
+            cout << "\nCurrent emotion: " << currentEmotion << ", " << emotionCodes[currentEmotion] << endl;
+        else {
 
-	(useImage) ? image.update() : cam.update();
+		    ofDirectory dir("results/");
+		    dir.listDir();
+			stringstream ss;
+			ss << dir.numFiles();
 
-    if ((!useImage && tracker.update(toCv(cam))) || (useImage && tracker.update(toCv(image)))) {
-        ofVec2f position = tracker.getPosition();
-        positionPoint = ofPoint(position.x, position.y);
-        scale = tracker.getScale();
-        orientation = tracker.getOrientation();
-        rotationMatrix = tracker.getRotationMatrix();
-        //classifier.classify(tracker);
+			ofFile file(ofToDataPath("results/" + ss.str() + ".txt"), ofFile::WriteOnly);
+			file.create();
+        	file << "gamma: " << conf_gamma << "\nc: " << conf_c << "\n\n";
+
+            int total = 0;
+            for (int i = 0; i < EMOTION_COUNT; i++)
+                total += occurrences[0][i];
+
+            for (int i = 0; i < EMOTION_COUNT; i++) {
+                for (int j = 0; j < EMOTION_COUNT; j++) {
+                    file << fixed << setprecision(1) << (float)occurrences[i][j]/total*100 << "\t";
+                    if (j == EMOTION_COUNT - 1)
+                        file << endl;
+                }
+            }
+
+			file.close();
+            std::exit(0);
+
+        }
+	}
+
+    if (frame == 0) {
+        string filename = sPaths[currentImage++];
+        ifstream ifile(filename);
+        if (ifile)
+            image.loadImage(filename);
     }
+    else if (frame == 3) {
+
+		Mat pointsMat;
+		tracker.getObjectPointsMat().convertTo(pointsMat, CV_32FC1);
+		norm(pointsMat);
+
+		if (pointsMat.rows == 198) {
+            int result = (int)SVM.predict(pointsMat);
+            cout << result << ", ";
+	        occurrences[currentEmotion][result]++;
+		}
+
+    	frame = -1;
+
+    }
+
+	image.update();
+	tracker.update(toCv(image));
+	frame++;
 
 }
 
@@ -137,37 +181,10 @@ void testApp::draw(){
 	ofSetColor(255);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, 20);
 
-    (useImage) ? image.draw(0, 0) : cam.draw(0, 0);
+    image.draw(0, 0);
 
-	Mat pointsMat;
-	tracker.getObjectPointsMat().convertTo(pointsMat, CV_32FC1);
-	norm(pointsMat);
-
-	if (pointsMat.rows == 198)
-        primaryExpression = SVM.predict(pointsMat);
-
-	ofSetColor(meshColor);
-	if (meshView[0]) {
-		if (meshView[1])
-			tracker.getImageMesh().drawWireframe();
-		else
-			tracker.draw();
-	}
-
-    string primaryLabel = emotionLabels[primaryExpression];
-    ((ofxUITextInput *) gui3->getWidget("Emotion"))->setTextString(primaryLabel);
-
-    int expressionCount = classifier.size();
-
-    for (int i = 0; i < expressionCount; i++) {
-    	probs[i] = (i == primaryExpression) ? 1 : 0;
-    }
-
-    stdDeviation = 0;
-    for (int i = 0; i < expressionCount; i++) {
-    	stdDeviation += pow(1/expressionCount - probs[i], 2);
-    }
-    stdDeviation /= expressionCount;
+	ofSetColor(ofColor(32, 225, 205));
+	tracker.getImageMesh().drawWireframe();
 
 }
 
@@ -175,11 +192,6 @@ void testApp::draw(){
 void testApp::keyPressed(int key){
 
     switch (key) {
-        case 'i':
-            gui1->toggleVisible();
-            gui2->toggleVisible();
-            gui4->toggleVisible();
-            break;
         default:
             break;
     }
@@ -223,42 +235,5 @@ void testApp::gotMessage(ofMessage msg){
 
 //--------------------------------------------------------------
 void testApp::dragEvent(ofDragInfo dragInfo){
-
-}
-
-//--------------------------------------------------------------
-void testApp::guiEvent(ofxUIEventArgs &e) {
-
-	string n = e.getName();
-	int kind = e.getKind();
-	cout << "got event from: " << n << ", " << kind << endl;
-
-	if (kind == 4) { // Mesh color
-
-		ofxUISlider *rslider = (ofxUISlider *) e.widget;
-		int value = rslider->getScaledValue();
-
-		if (n == "Red")
-			meshColor.r = value;
-		else if (n == "Green")
-			meshColor.g = value;
-		else if (n == "Blue")
-			meshColor.b = value;
-
-	}
-
-	else if (kind == 2) { // Mesh visibility
-
-		ofxUIToggle *toggle = (ofxUIToggle *) e.getToggle();
-		bool value = toggle->getValue();
-
-		if (n == "Show")
-			meshView[0] = value;
-		else if (n == "Complex")
-			meshView[1] = value;
-		else if (n == "Axis")
-			meshView[2] = value;
-
-	}
 
 }
