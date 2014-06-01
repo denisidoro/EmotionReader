@@ -102,7 +102,7 @@ void testApp::setup() {
     params.gamma       = conf_gamma;
     params.degree      = 2;
     params.coef0       = 0;
-    params.kernel_type = CvSVM::LINEAR;
+    params.kernel_type = CvSVM::RBF;
     params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-1);
 
     // Train the SVM
