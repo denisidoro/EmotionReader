@@ -4,11 +4,6 @@ using namespace ofxCv;
 using namespace cv;
 
 
-//--------------------------------------------------------------
-// Function that returns a vector with the path of all files
-// inside the KDEF folder
-// Please make sure to delete all files that don't end with s.jpg
-
 int kanadeGetEmotion(string txt) {
     ofBuffer buffer = ofBufferFromFile(txt);
     vector<string> words = ofSplitString(buffer.getText(), " ", true, true);
@@ -21,6 +16,11 @@ string kanadeGetLastPic(string path) {
     return path;
 }
 
+
+
+//--------------------------------------------------------------
+// Function that returns a vector with the path of all files
+// If using KDEF, please make sure to delete all files that don't end with s.jpg
 vector<string> testApp::getImagePaths(int db) {
 
     std::vector<string> paths;
@@ -83,8 +83,9 @@ vector<string> testApp::filterByEmotion(vector<string> paths, string code, int d
 
     else {
 
+        int conversion[6] = {0, 2, 3, 4, 5, 6};
         for (int i = 0; i < paths.size(); i++) {
-            if (kanadeGetEmotion(paths[i]) == currentEmotion)
+            if (kanadeGetEmotion(paths[i]) == conversion[currentEmotion])
                 selected.push_back(kanadeGetLastPic(paths[i]));
         }
 
@@ -107,12 +108,11 @@ void testApp::setup() {
         for (int j = 0; j < EMOTION_COUNT; j++)
             occurrences[i][j] = 0;
 
-    conf_c = (arguments.size() >= 2 ? ::atof(arguments[1].c_str()) : 0.1);
-    conf_gamma = (arguments.size() >= 3 ? ::atof(arguments[2].c_str()) : 0.1);
-    cout << "C: " << conf_c << ", gamma: " << conf_gamma << endl;
+    testingDatabase = (arguments.size() >= 2 ? ::atof(arguments[1].c_str()) : 1);
+    databasePath = (arguments.size() >= 3 ? arguments[2] : "kdefAll");
 
 	// Get the path of all images
-	paths = getImagePaths(trainingDatabase);
+	paths = getImagePaths(testingDatabase);
 
 	// Facetracking initialization
 	tracker.setup();
@@ -149,9 +149,9 @@ void testApp::setup() {
 
     // Set up SVM's parameters
     CvSVMParams params;
-    params.C           = conf_c;
+    params.C           = 0.1;
     params.svm_type    = CvSVM::C_SVC;
-    params.gamma       = conf_gamma;
+    params.gamma       = 1;
     params.degree      = 2;
     params.coef0       = 0;
     params.kernel_type = CvSVM::RBF;
@@ -160,8 +160,6 @@ void testApp::setup() {
     // Train the SVM
     SVM.train_auto(trainingDataMat, labelsMat, Mat(), Mat(), params, 10);
     params = SVM.get_params();
-    conf_c = params.C;
-    conf_gamma = params.gamma;
     cout << "C: " << params.C << ", gamma: " << params.gamma << "\n\n" << params.degree;
 
 }
@@ -170,7 +168,7 @@ void testApp::setup() {
 void testApp::update() {
 
 	if (sPaths.size() == 0 || currentImage >= sPaths.size()) {
-		sPaths = filterByEmotion(paths, emotionCodes[++currentEmotion], trainingDatabase);
+		sPaths = filterByEmotion(paths, emotionCodes[++currentEmotion], testingDatabase);
 		currentImage = 0;
 		if (currentEmotion <= EMOTION_COUNT - 1)
             cout << "\nCurrent emotion: " << currentEmotion << ", " << emotionCodes[currentEmotion] << endl;
@@ -185,16 +183,18 @@ void testApp::update() {
 			file.create();
         	file << "database: " << databasePath << "\ngamma: " << conf_gamma << "\nc: " << conf_c << "\n\n";
 
-            int total = 0;
-            for (int i = 0; i < EMOTION_COUNT; i++)
-                total += occurrences[0][i];
-
             for (int i = 0; i < EMOTION_COUNT; i++) {
+
+                int total = 0;
+                for (int j = 0; j < EMOTION_COUNT; j++)
+                total += occurrences[i][j];
+
                 for (int j = 0; j < EMOTION_COUNT; j++) {
                     file << fixed << setprecision(1) << (float)occurrences[i][j]/total*100 << "\t";
                     if (j == EMOTION_COUNT - 1)
                         file << endl;
                 }
+
             }
 
 			file.close();

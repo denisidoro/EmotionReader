@@ -1,4 +1,5 @@
-database: kanadeSelected
+testDatabase: 0
+trainDatabase: kanadeSelected
 type: POLY
 gamma: 0.03375 (AUTO)
 c: 312.5 (AUTO)

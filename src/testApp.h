@@ -33,7 +33,7 @@ class testApp : public ofBaseApp{
 
 		string emotionCodes[8] = {"AN", "DI", "AF", "HA", "SA", "SU", "NE"};
 		const int EMOTION_COUNT = 6;
-		string databasePath = "kdefAll";
+		string databasePath;
 
 		// Image
 		ofImage image;
@@ -52,6 +52,6 @@ class testApp : public ofBaseApp{
     	int frame = 0;
 
         vector<string> arguments;
-        int trainingDatabase = 1; // 0: KDEF, 1: Kanade
+        int testingDatabase = 1; // 0: KDEF, 1: Kanade
 
 };

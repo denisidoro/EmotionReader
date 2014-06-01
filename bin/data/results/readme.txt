@@ -1,3 +1,5 @@
+testDatabase: 0 = kdefAll, 1 = kanadeSelected
+
 AN = Angry
 DI = Disgust
 AF = Afraid

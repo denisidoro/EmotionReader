@@ -1,4 +1,5 @@
-database: kanadeSelected
+testDatabase: 0
+trainDatabase: kanadeSelected
 type: RBF
 c: 0.00225 (AUTO)
 gamma: 62.5 (AUTO)

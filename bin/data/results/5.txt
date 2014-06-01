@@ -1,4 +1,5 @@
-database: kdefAll
+testDatabase: 0
+trainDatabase: kdefAll
 gamma: 0.03375 (AUTO)
 c: 2.5 (AUTO)
 

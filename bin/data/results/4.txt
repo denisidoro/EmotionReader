@@ -1,4 +1,5 @@
-database: kanadeSelected
+testDatabase: 0
+trainDatabase: kanadeSelected
 type: LINEAR
 gamma: 1 (AUTO)
 c: 0.1 (AUTO)
