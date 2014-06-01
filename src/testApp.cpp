@@ -65,7 +65,7 @@ void testApp::setup() {
 	// Facetracking initialization
 	tracker.setup();
 	tracker.setRescale(.5);
-    classifier.load("kanadeSelected");
+    classifier.load(databasePath);
 
     // Start preparing training input
     int TOTAL_SAMPLES = 0;
@@ -100,13 +100,17 @@ void testApp::setup() {
     params.C           = conf_c;
     params.svm_type    = CvSVM::C_SVC;
     params.gamma       = conf_gamma;
-    params.kernel_type = CvSVM::RBF;
-    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+    params.degree      = 2;
+    params.coef0       = 0;
+    params.kernel_type = CvSVM::LINEAR;
+    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-1);
 
     // Train the SVM
-    SVM.train_auto(trainingDataMat, labelsMat, Mat(), Mat(), params);
-    /*SVM.get_params();
-    cout << "C: " << params.C << ", gamma: " << params.gamma << "\n\n";*/
+    SVM.train_auto(trainingDataMat, labelsMat, Mat(), Mat(), params, 10);
+    params = SVM.get_params();
+    conf_c = params.C;
+    conf_gamma = params.gamma;
+    cout << "C: " << params.C << ", gamma: " << params.gamma << "\n\n" << params.degree;
 
 }
 
@@ -122,11 +126,11 @@ void testApp::update() {
 		    ofDirectory dir("results/");
 		    dir.listDir();
 			stringstream ss;
-			ss << dir.numFiles();
+			ss << dir.numFiles() - 2;
 
 			ofFile file(ofToDataPath("results/" + ss.str() + ".txt"), ofFile::WriteOnly);
 			file.create();
-        	file << "gamma: " << conf_gamma << "\nc: " << conf_c << "\n\n";
+        	file << "database: " << databasePath << "\ngamma: " << conf_gamma << "\nc: " << conf_c << "\n\n";
 
             int total = 0;
             for (int i = 0; i < EMOTION_COUNT; i++)

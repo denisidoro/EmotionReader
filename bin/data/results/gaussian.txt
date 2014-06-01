@@ -1,0 +1,14 @@
+11.1	?	?	?	?	?
+?	33.3	?	?	?	?
+?	?	40.0	?	?	?
+?	?	?	92.9	?	?
+?	?	?	?	16.7	?
+?	?	?	?	?	70.59
+
+80/20
+
+training: first 80% KANADE
+testing: last 20% KANADE
+
+Je ne veux pas écrire le code pour tester la base KDEF en utilisant le "GMM"
+Mais si qlqn veut, il faut regarder les autres branches sur Github et les adapter

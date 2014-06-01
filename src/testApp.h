@@ -30,6 +30,7 @@ class testApp : public ofBaseApp{
 
 		string emotionCodes[8] = {"AN", "DI", "AF", "HA", "SA", "SU", "NE"};
 		const int EMOTION_COUNT = 6;
+		string databasePath = "kanadeSelected";
 
 		// Image
 		ofImage image;
