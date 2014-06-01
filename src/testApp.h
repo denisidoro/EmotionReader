@@ -29,7 +29,7 @@ class testApp : public ofBaseApp{
 		ofMatrix4x4 rotationMatrix;
 
 		float probs[7];
-		string emotionLabels[8] = {"Angry", "Contempt", "Disgust", "Fear", "Happiness", "Sadness", "Surprise", "Neutral"};
+		string emotionLabels[8] = {"Angry", "Disgust", "Fear", "Happiness", "Sadness", "Surprise", "Neutral"};
 
 		// UI related
 		ofxUISuperCanvas *gui1;
@@ -52,5 +52,10 @@ class testApp : public ofBaseApp{
         // SVM
     	CvSVM SVM;
     	int primaryExpression = 0;
+
+    	string databasePath;
+    	int const EMOTION_COUNT = 6;
+        vector<string> arguments;
+
 
 };

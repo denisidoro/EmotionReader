@@ -9,25 +9,31 @@ void testApp::setup() {
 	ofSetVerticalSync(true);
 	ofEnableSmoothing();
 
+    databasePath = (arguments.size() >= 2 ? arguments[1] : "kanadeSelectedPlusKdefAll");
+
 	// facetracking initialization
 	tracker.setup();
 	tracker.setRescale(.5);
-    classifier.load("emotions");
+    classifier.load(databasePath);
 
-    (useImage) ? image.loadImage("D:/dev/resource/temp/caprio.jpg") : cam.initGrabber(640, 470);
+    if (arguments.size() > 3) {
+        useImage = true;
+        image.loadImage(arguments[2]);
+    }
+    else
+        cam.initGrabber(640, 470);
 
     // Start preparing training input
     int TOTAL_SAMPLES = 0;
     int index = 0;
-    int expressionCount = classifier.size();
 
-    for (int i = 0; i < expressionCount; i++)
+    for (int i = 0; i < EMOTION_COUNT; i++)
         TOTAL_SAMPLES += classifier.getExpression(i).size();
 
     float labels[TOTAL_SAMPLES];
     float trainingData[TOTAL_SAMPLES][198];
 
-    for (int i = 0; i < expressionCount; i++) {
+    for (int i = 0; i < EMOTION_COUNT; i++) {
         Expression expression = classifier.getExpression(i);
         int sampleCount = expression.size();
         for (int j = 0; j < sampleCount; j++) {
@@ -44,21 +50,23 @@ void testApp::setup() {
     Mat labelsMat(TOTAL_SAMPLES, 1, CV_32FC1, labels);
     Mat trainingDataMat(TOTAL_SAMPLES, 198, CV_32FC1, trainingData);
 
-    //cout << trainingDataMat << endl;
-
     // Set up SVM's parameters
     CvSVMParams params;
     params.C           = 0.1;
     params.svm_type    = CvSVM::C_SVC;
-    params.kernel_type = CvSVM::LINEAR;
-    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+    params.gamma       = 1;
+    params.degree      = 2;
+    params.coef0       = 0;
+    params.kernel_type = CvSVM::RBF;
+    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-1);
 
     // Train the SVM
-    SVM.train(trainingDataMat, labelsMat, Mat(), Mat(), params);
+    SVM.train_auto(trainingDataMat, labelsMat, Mat(), Mat(), params, 10);
+    params = SVM.get_params();
 
     // set some sketch parameters
     meshColor = ofColor(32, 225, 205);
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < EMOTION_COUNT; i++)
     	probs[i] = 0;
 
     int camWidth = 640, panelWidth = 212;
@@ -84,7 +92,7 @@ void testApp::setup() {
 
     gui2 = new ofxUISuperCanvas("EMOTIONS");
     gui2->addSpacer();
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < EMOTION_COUNT; i++)
     	gui2->addSlider(emotionLabels[i], 0, 1, &probs[i]);
     gui2->setPosition(camWidth - panelWidth, 0);
     gui2->autoSizeToFitWidgets();
@@ -125,7 +133,7 @@ void testApp::update() {
         scale = tracker.getScale();
         orientation = tracker.getOrientation();
         rotationMatrix = tracker.getRotationMatrix();
-        //classifier.classify(tracker);
+        classifier.classify(tracker);
     }
 
 }
@@ -154,20 +162,23 @@ void testApp::draw(){
 			tracker.draw();
 	}
 
-    string primaryLabel = emotionLabels[primaryExpression];
-    ((ofxUITextInput *) gui3->getWidget("Emotion"))->setTextString(primaryLabel);
+    int primary = classifier.getPrimaryExpression();
 
-    int expressionCount = classifier.size();
-
-    for (int i = 0; i < expressionCount; i++) {
-    	probs[i] = (i == primaryExpression) ? 1 : 0;
+    int avgProb = 0;
+    for (int i = 0; i < EMOTION_COUNT; i++) {
+        probs[i] = classifier.getProbability(i);
+        avgProb += probs[i];
     }
+    avgProb /= EMOTION_COUNT;
 
     stdDeviation = 0;
-    for (int i = 0; i < expressionCount; i++) {
-    	stdDeviation += pow(1/expressionCount - probs[i], 2);
+    for (int i = 0; i < EMOTION_COUNT; i++) {
+        stdDeviation += pow(avgProb - probs[i], 2);
     }
-    stdDeviation /= expressionCount;
+    stdDeviation /= EMOTION_COUNT;
+
+    string primaryLabel = emotionLabels[primaryExpression];
+    ((ofxUITextInput *) gui3->getWidget("Emotion"))->setTextString(primaryLabel);
 
 }
 
