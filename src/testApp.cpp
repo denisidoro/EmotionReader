@@ -8,19 +8,58 @@ using namespace cv;
 // Function that returns a vector with the path of all files
 // inside the KDEF folder
 // Please make sure to delete all files that don't end with s.jpg
-vector<string> getImagePaths() {
+
+int kanadeGetEmotion(string txt) {
+    ofBuffer buffer = ofBufferFromFile(txt);
+    vector<string> words = ofSplitString(buffer.getText(), " ", true, true);
+    return (int)atof(words[0].c_str()) - 1;
+}
+
+string kanadeGetLastPic(string path) {
+    ofStringReplace(path, "Emotion", "images");
+    ofStringReplace(path, "_emotion.txt", ".png");
+    return path;
+}
+
+vector<string> testApp::getImagePaths(int db) {
 
     std::vector<string> paths;
 
-    string kdefPath = "/dev/resource/kdef/";
-    ofDirectory dir(kdefPath);
-    dir.listDir();
+    if (db == 0) {
 
-    for (int i = 0; i < dir.numFiles(); i++) {
-        ofDirectory dirSubject(dir.getPath(i));
-        dirSubject.listDir();
-        for (int j = 0; j < dirSubject.numFiles(); j++)
-            paths.push_back(dirSubject.getPath(j));
+        string kdefPath = "/dev/resource/kdef/";
+        ofDirectory dir(kdefPath);
+        dir.listDir();
+
+        for (int i = 0; i < dir.numFiles(); i++) {
+            ofDirectory dirSubject(dir.getPath(i));
+            dirSubject.listDir();
+            for (int j = 0; j < dirSubject.numFiles(); j++)
+                paths.push_back(dirSubject.getPath(j));
+        }
+
+    }
+
+    else {
+
+        string kanadePath = "/dev/resource/kanade/";
+        ofDirectory dirEmotions(kanadePath + "/Emotion");
+        dirEmotions.listDir();
+
+        for(int i = 0; i < dirEmotions.numFiles(); i++) {
+
+            ofDirectory dirSubject(dirEmotions.getPath(i));
+            dirSubject.listDir();
+             for(int j = 0; j < dirSubject.numFiles(); j++) {
+                ofDirectory dir(dirSubject.getPath(j));
+                dir.listDir();
+                for(int k = 0; k < dir.numFiles(); k++) {
+                    paths.push_back(dir.getPath(k));
+                }
+            }
+
+        }
+
     }
 
     return paths;
@@ -28,15 +67,28 @@ vector<string> getImagePaths() {
 }
 
 
-vector<string> filterByEmotion(vector<string> paths, string code) {
+vector<string> testApp::filterByEmotion(vector<string> paths, string code, int db) {
 
     vector<string> selected;
 
-	for (int i = 0; i < paths.size(); i++) {
-		string imageCode = paths[i].substr(paths[i].length() - 7, 2);
-		if (imageCode.compare(code) == 0)
-            selected.push_back(paths[i]);
-	}
+    if (db == 0) {
+
+        for (int i = 0; i < paths.size(); i++) {
+            string imageCode = paths[i].substr(paths[i].length() - 7, 2);
+            if (imageCode.compare(code) == 0)
+                selected.push_back(paths[i]);
+        }
+
+    }
+
+    else {
+
+        for (int i = 0; i < paths.size(); i++) {
+            if (kanadeGetEmotion(paths[i]) == currentEmotion)
+                selected.push_back(kanadeGetLastPic(paths[i]));
+        }
+
+    }
 
     return selected;
 
@@ -60,7 +112,7 @@ void testApp::setup() {
     cout << "C: " << conf_c << ", gamma: " << conf_gamma << endl;
 
 	// Get the path of all images
-	paths = getImagePaths();
+	paths = getImagePaths(trainingDatabase);
 
 	// Facetracking initialization
 	tracker.setup();
@@ -116,8 +168,9 @@ void testApp::setup() {
 
 //--------------------------------------------------------------
 void testApp::update() {
+
 	if (sPaths.size() == 0 || currentImage >= sPaths.size()) {
-		sPaths = filterByEmotion(paths, emotionCodes[++currentEmotion]);
+		sPaths = filterByEmotion(paths, emotionCodes[++currentEmotion], trainingDatabase);
 		currentImage = 0;
 		if (currentEmotion <= EMOTION_COUNT - 1)
             cout << "\nCurrent emotion: " << currentEmotion << ", " << emotionCodes[currentEmotion] << endl;

@@ -21,6 +21,9 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+		vector<string> getImagePaths(int db);
+		vector<string> filterByEmotion(vector<string> paths, string code, int db);
+
 		// OpenCV-related
 		ofVideoGrabber cam;
 		ofxFaceTracker tracker;
@@ -49,5 +52,6 @@ class testApp : public ofBaseApp{
     	int frame = 0;
 
         vector<string> arguments;
+        int trainingDatabase = 1; // 0: KDEF, 1: Kanade
 
 };
