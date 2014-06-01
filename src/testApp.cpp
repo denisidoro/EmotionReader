@@ -165,8 +165,15 @@ void testApp::draw(){
     int primary = classifier.getPrimaryExpression();
 
     int avgProb = 0;
+    bool allAreReallySmall = true, allAreSmall = true;
     for (int i = 0; i < EMOTION_COUNT; i++) {
         probs[i] = classifier.getProbability(i);
+        if (probs[i] > 0.40)
+            allAreReallySmall = false;
+        if (probs[i] > 0.43)
+            allAreSmall = false;
+        else if (probs[i] > 0.51)
+            primaryExpression = primary;
         avgProb += probs[i];
     }
     avgProb /= EMOTION_COUNT;
@@ -176,6 +183,9 @@ void testApp::draw(){
         stdDeviation += pow(avgProb - probs[i], 2);
     }
     stdDeviation /= EMOTION_COUNT;
+
+    if (allAreReallySmall || (allAreSmall && stdDeviation < 0.06))
+        primaryExpression = 6;
 
     string primaryLabel = emotionLabels[primaryExpression];
     ((ofxUITextInput *) gui3->getWidget("Emotion"))->setTextString(primaryLabel);
