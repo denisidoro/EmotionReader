@@ -23,6 +23,7 @@ class testApp : public ofBaseApp{
 
 		vector<string> getImagePaths(int db);
 		vector<string> filterByEmotion(vector<string> paths, string code, int db);
+		vector<string> filterBySubject(vector<string> paths, int id);
 
 		// OpenCV-related
 		ofVideoGrabber cam;
@@ -40,18 +41,18 @@ class testApp : public ofBaseApp{
 
         // SVM
     	CvSVM SVM;
-    	float conf_gamma;
-    	float conf_c;
+        CvSVMParams params;
 
     	// Test-related
     	vector<string> paths;
     	vector<string> sPaths;
     	int occurrences[7][7];
-    	int currentEmotion = -1;
-    	int currentImage;
+    	int currentSubject = -1;
+    	int currentEmotion;
     	int frame = 0;
 
         vector<string> arguments;
-        int testingDatabase = 1; // 0: KDEF, 1: Kanade
+        int testingDatabase; // 0: KDEF, 1: Kanade
+        const int SUBJECT_COUNT = 140;
 
 };

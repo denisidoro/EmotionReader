@@ -67,6 +67,20 @@ vector<string> testApp::getImagePaths(int db) {
 }
 
 
+vector<string> testApp::filterBySubject(vector<string> paths, int id) {
+
+    vector<string> selected;
+
+    for (int i = (EMOTION_COUNT + 1)*id; i < (EMOTION_COUNT + 1)*(id+1); i++) {
+        if ((i - (EMOTION_COUNT + 1)*id + 1) % 5 != 0)
+            selected.push_back(paths[i]);
+    }
+
+    return selected;
+
+}
+
+
 vector<string> testApp::filterByEmotion(vector<string> paths, string code, int db) {
 
     vector<string> selected;
@@ -108,7 +122,7 @@ void testApp::setup() {
         for (int j = 0; j < EMOTION_COUNT; j++)
             occurrences[i][j] = 0;
 
-    testingDatabase = (arguments.size() >= 2 ? ::atof(arguments[1].c_str()) : 1);
+    testingDatabase = (arguments.size() >= 2 ? ::atof(arguments[1].c_str()) : 0);
     databasePath = (arguments.size() >= 3 ? arguments[2] : "kdefAll");
 
 	// Get the path of all images
@@ -117,61 +131,76 @@ void testApp::setup() {
 	// Facetracking initialization
 	tracker.setup();
 	tracker.setRescale(.5);
-    classifier.load(databasePath);
-
-    // Start preparing training input
-    int TOTAL_SAMPLES = 0;
-    int index = 0;
-    int expressionCount = classifier.size();
-
-    for (int i = 0; i < expressionCount; i++)
-        TOTAL_SAMPLES += classifier.getExpression(i).size();
-
-    float labels[TOTAL_SAMPLES];
-    float trainingData[TOTAL_SAMPLES][198];
-
-    for (int i = 0; i < expressionCount; i++) {
-        Expression expression = classifier.getExpression(i);
-        int sampleCount = expression.size();
-        for (int j = 0; j < sampleCount; j++) {
-            labels[index] = i;
-            Mat& sampleMat = expression.getExample(j);
-            vector<float> sampleVector;
-            sampleMat.convertTo(sampleVector, CV_32FC1);
-            for (int k = 0; k < 198; k++)
-                trainingData[index][k] = sampleVector[k];
-            index++;
-        }
-    }
-
-    Mat labelsMat(TOTAL_SAMPLES, 1, CV_32FC1, labels);
-    Mat trainingDataMat(TOTAL_SAMPLES, 198, CV_32FC1, trainingData);
 
     // Set up SVM's parameters
-    CvSVMParams params;
     params.C           = 0.1;
     params.svm_type    = CvSVM::C_SVC;
     params.gamma       = 1;
     params.degree      = 2;
     params.coef0       = 0;
-    params.kernel_type = CvSVM::RBF;
+    params.kernel_type = CvSVM::LINEAR;
     params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-1);
-
-    // Train the SVM
-    SVM.train_auto(trainingDataMat, labelsMat, Mat(), Mat(), params, 10);
-    params = SVM.get_params();
-    cout << "C: " << params.C << ", gamma: " << params.gamma << "\n\n" << params.degree;
 
 }
 
 //--------------------------------------------------------------
 void testApp::update() {
 
-	if (sPaths.size() == 0 || currentImage >= sPaths.size()) {
-		sPaths = filterByEmotion(paths, emotionCodes[++currentEmotion], testingDatabase);
-		currentImage = 0;
-		if (currentEmotion <= EMOTION_COUNT - 1)
-            cout << "\nCurrent emotion: " << currentEmotion << ", " << emotionCodes[currentEmotion] << endl;
+	if (sPaths.size() == 0 || currentEmotion >= sPaths.size()) {
+
+		if (currentSubject < SUBJECT_COUNT - 1) {
+
+            /* START TRAINING */
+
+            classifier.reset();
+            classifier.load(databasePath, ++currentSubject);
+
+            // Start preparing training input
+            int TOTAL_SAMPLES = 0;
+            int index = 0;
+            int expressionCount = classifier.size();
+
+            for (int i = 0; i < expressionCount; i++)
+                TOTAL_SAMPLES += classifier.getExpression(i).size();
+
+            float labels[TOTAL_SAMPLES];
+            float trainingData[TOTAL_SAMPLES][198];
+
+            for (int i = 0; i < expressionCount; i++) {
+                Expression expression = classifier.getExpression(i);
+                int sampleCount = expression.size();
+                for (int j = 0; j < sampleCount; j++) {
+                    labels[index] = i;
+                    Mat& sampleMat = expression.getExample(j);
+                    vector<float> sampleVector;
+                    sampleMat.convertTo(sampleVector, CV_32FC1);
+                    for (int k = 0; k < 198; k++)
+                        trainingData[index][k] = sampleVector[k];
+                    index++;
+                }
+            }
+
+            Mat labelsMat(TOTAL_SAMPLES, 1, CV_32FC1, labels);
+            Mat trainingDataMat(TOTAL_SAMPLES, 198, CV_32FC1, trainingData);
+
+            // Train the SVM
+            if (currentSubject == 0)
+                SVM.train_auto(trainingDataMat, labelsMat, Mat(), Mat(), params, 10);
+
+            /* FINISH TRAINING */
+
+            sPaths = filterBySubject(paths, currentSubject);
+            cout << endl;
+            for (auto p : sPaths)
+                cout << p << endl;
+
+            frame = 0;
+            currentEmotion = 0;
+
+            cout << "\nCurrent subject: " << currentSubject << endl;
+
+		}
+
         else {
 
 		    ofDirectory dir("results/");
@@ -181,7 +210,8 @@ void testApp::update() {
 
 			ofFile file(ofToDataPath("results/" + ss.str() + ".txt"), ofFile::WriteOnly);
 			file.create();
-        	file << "testdatabase: " << testingDatabase << "\ntrainDatabase: " << databasePath << "\ngamma: " << conf_gamma << "\nc: " << conf_c << "\n\n";
+
+        	file << "testdatabase: " << testingDatabase << "\ntrainDatabase: " << databasePath << "\n\n";
 
             for (int i = 0; i < EMOTION_COUNT; i++) {
 
@@ -204,7 +234,7 @@ void testApp::update() {
 	}
 
     if (frame == 0) {
-        string filename = sPaths[currentImage++];
+        string filename = sPaths[currentEmotion++];
         ifstream ifile(filename);
         if (ifile)
             image.loadImage(filename);
@@ -217,8 +247,8 @@ void testApp::update() {
 
 		if (pointsMat.rows == 198) {
             int result = (int)SVM.predict(pointsMat);
-            cout << result << ", ";
-	        occurrences[currentEmotion][result]++;
+            cout << "emotion: " << (currentEmotion - 1) << ", result: " << result << ", filename: " << sPaths[currentEmotion - 1] << endl;
+	        occurrences[currentEmotion - 1][result]++;
 		}
 
     	frame = -1;
