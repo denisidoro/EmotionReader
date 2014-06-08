@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]){
 
     // setup the GL context
-	ofSetupOpenGL(852, 480, OF_WINDOW);
+	ofSetupOpenGL(640, 470, OF_WINDOW);
 
 	// create app
     testApp *app = new testApp();

@@ -9,16 +9,17 @@ void testApp::setup() {
 	ofSetVerticalSync(true);
 	ofEnableSmoothing();
 
-    databasePath = (arguments.size() >= 2 ? arguments[1] : "kanadeSelectedPlusKdefAll");
+    linear = (arguments.size() >= 3 ? ((int)atof(arguments[2].c_str()) == 1 ? true : false) : true);
+    databasePath = (arguments.size() >= 4 ? arguments[3] : "kanadeSelectedPlusKdefAll");
 
 	// facetracking initialization
 	tracker.setup();
 	tracker.setRescale(.5);
     classifier.load(databasePath);
 
-    if (arguments.size() > 3) {
+    if (arguments.size() >= 2) {
         useImage = true;
-        image.loadImage(arguments[2]);
+        image.loadImage(arguments[1]);
     }
     else
         cam.initGrabber(640, 470);
@@ -57,7 +58,7 @@ void testApp::setup() {
     params.gamma       = 1;
     params.degree      = 2;
     params.coef0       = 0;
-    params.kernel_type = CvSVM::RBF;
+    params.kernel_type = (linear == true) ? CvSVM::LINEAR : CvSVM::RBF;
     params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-1);
 
     // Train the SVM
@@ -66,8 +67,11 @@ void testApp::setup() {
 
     // set some sketch parameters
     meshColor = ofColor(32, 225, 205);
-    for (int i = 0; i < EMOTION_COUNT; i++)
+    for (int i = 0; i < EMOTION_COUNT; i++) {
     	probs[i] = 0;
+        emotionFrames[i] = 0;
+        emotionPercentages[i] = 0;
+    }
 
     int camWidth = 640, panelWidth = 212;
 
@@ -78,7 +82,8 @@ void testApp::setup() {
     gui1->addSpacer();
 	gui1->addToggle("Show", meshView[0]);
 	gui1->addToggle("Complex", meshView[1]);
-	//gui1->addToggle("Axis", meshView[2]);
+	//gui1->addToggle("Axis", meshView[2]);/
+	//gui1->addToggle("Miniature", meshView[3]);
     gui1->addSpacer();
     gui1->addLabel("Color", OFX_UI_FONT_MEDIUM);
     gui1->addSpacer();
@@ -102,7 +107,7 @@ void testApp::setup() {
     gui3->addSpacer();
     gui3->addTextInput("Emotion", "Face not tracked");
     gui3->addSpacer();
-    gui3->addSlider("Standard deviation", 0, 0.13, &stdDeviation);
+    gui3->addSlider("Variance", 0, 0.15, &stdDeviation);
     gui3->setPosition(camWidth/3, 0);
     gui3->autoSizeToFitWidgets();
 
@@ -119,6 +124,25 @@ void testApp::setup() {
     gui5->addLabel("Press i to toggle advanced panels");
     gui5->setPosition(0, 470 - 20);
     gui5->autoSizeToFitWidgets();
+
+    gui6 = new ofxUISuperCanvas("TIME OCCURRENCES");
+    gui6->addSpacer();
+    for (int i = 0; i < EMOTION_COUNT + 1; i++) {
+        if (i == 1)
+            gui6->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
+    	gui6->addSlider(emotionLabelsSmall[i], 0, 1, &emotionPercentages[i], 24, 64);
+    }
+	gui6->setWidgetPosition(OFX_UI_WIDGET_POSITION_DOWN);
+    gui6->setPosition(camWidth - panelWidth, 470 - 110);
+    gui6->autoSizeToFitWidgets();
+    gui6->disable();
+
+    gui7 = new ofxUISuperCanvas("OPTIONS");
+    gui7->addSpacer();
+    gui7->addSlider("Neutral threshold", 0, 1, &neutralThreshold);
+    gui7->setPosition(0, 270);
+    gui7->autoSizeToFitWidgets();
+    gui7->disable();
 
 }
 
@@ -168,11 +192,8 @@ void testApp::draw(){
     bool allAreReallySmall = true, allAreSmall = true;
     for (int i = 0; i < EMOTION_COUNT; i++) {
         probs[i] = classifier.getProbability(i);
-        if (probs[i] > 0.40)
-            allAreReallySmall = false;
-        if (probs[i] > 0.43)
+        if (probs[i] > neutralThreshold)
             allAreSmall = false;
-        else if (probs[i] > 0.51)
             primaryExpression = primary;
         avgProb += probs[i];
     }
@@ -184,11 +205,28 @@ void testApp::draw(){
     }
     stdDeviation /= EMOTION_COUNT;
 
-    if (allAreReallySmall || (allAreSmall && stdDeviation < 0.06))
+    if (allAreSmall)
         primaryExpression = 6;
+
+    emotionFrames[primaryExpression]++;
+    int totalCounts = 0;
+    for (int i = 0; i < EMOTION_COUNT + 1; i++)
+        totalCounts += emotionFrames[i];
+    for (int i = 0; i < EMOTION_COUNT + 1; i++)
+        emotionPercentages[i] = emotionFrames[i]/totalCounts;
 
     string primaryLabel = emotionLabels[primaryExpression];
     ((ofxUITextInput *) gui3->getWidget("Emotion"))->setTextString(primaryLabel);
+
+    if (meshView[3] && !useImage) {
+        ofSetColor(255);
+        ofMesh objectMesh = tracker.getObjectMesh();
+        ofMesh meanMesh = tracker.getMeanObjectMesh();
+        ofSetupScreenOrtho(640, 480, OF_ORIENTATION_DEFAULT, true, -1000, 1000);
+        cam.getTextureReference().bind();
+        meanMesh.draw();
+        cam.getTextureReference().unbind();
+    }
 
 }
 
@@ -200,6 +238,14 @@ void testApp::keyPressed(int key){
             gui1->toggleVisible();
             gui2->toggleVisible();
             gui4->toggleVisible();
+            gui6->toggleVisible();
+            gui7->toggleVisible();
+            break;
+        case 'k':
+            cout << "age: " << tracker.getAge() << endl;
+            cout << "found: " << tracker.getFound() << endl;
+            cout << "orientation: " << tracker.getOrientation() << endl;
+            cout << "direction: " << tracker.getDirection() << endl;
             break;
         default:
             break;
@@ -252,7 +298,7 @@ void testApp::guiEvent(ofxUIEventArgs &e) {
 
 	string n = e.getName();
 	int kind = e.getKind();
-	cout << "got event from: " << n << ", " << kind << endl;
+	//cout << "got event from: " << n << ", " << kind << endl;
 
 	if (kind == 4) { // Mesh color
 
