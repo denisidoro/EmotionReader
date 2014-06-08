@@ -146,14 +146,16 @@ void testApp::setup() {
 //--------------------------------------------------------------
 void testApp::update() {
 
-	if (sPaths.size() == 0 || currentEmotion >= sPaths.size()) {
+	if (sPaths.size() == 0 || currentEmotion > sPaths.size()) {
 
 		if (currentSubject < SUBJECT_COUNT - 1) {
 
             /* START TRAINING */
 
+            currentSubject++;
+
             classifier.reset();
-            classifier.load(databasePath, ++currentSubject);
+            classifier.load(databasePath, currentSubject);
 
             // Start preparing training input
             int TOTAL_SAMPLES = 0;
@@ -185,10 +187,11 @@ void testApp::update() {
 
             // Train the SVM
             if (currentSubject == 0)
-                SVM.train_auto(trainingDataMat, labelsMat, Mat(), Mat(), params, 10);
+            SVM.train_auto(trainingDataMat, labelsMat, Mat(), Mat(), params, 10);
 
             /* FINISH TRAINING */
 
+            sPaths.clear();
             sPaths = filterBySubject(paths, currentSubject);
             cout << endl;
             for (auto p : sPaths)
@@ -233,11 +236,19 @@ void testApp::update() {
         }
 	}
 
+	if (currentEmotion > 5 && frame == 0) {
+        currentEmotion++;
+        return;
+	}
+
+	//cout << "   frame: " << frame << ", currentEmotion: " << currentEmotion << endl;
+
     if (frame == 0) {
-        string filename = sPaths[currentEmotion++];
-        ifstream ifile(filename);
-        if (ifile)
-            image.loadImage(filename);
+        bool success;
+        string filename = sPaths[currentEmotion];
+        currentEmotion++;
+        if (!image.loadImage(filename))
+            return;
     }
     else if (frame == 3) {
 
@@ -246,7 +257,7 @@ void testApp::update() {
 		norm(pointsMat);
 
 		if (pointsMat.rows == 198) {
-            int result = (int)SVM.predict(pointsMat);
+            int result = (int)SVM.predict(pointsMat, true);
             cout << "emotion: " << (currentEmotion - 1) << ", result: " << result << ", filename: " << sPaths[currentEmotion - 1] << endl;
 	        occurrences[currentEmotion - 1][result]++;
 		}
